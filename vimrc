@@ -67,4 +67,4 @@ set cursorcolumn
 set cursorline
 set colorcolumn=96
 nnoremap <C-t> :wa<CR>:!make <CR>
-"nnoremap <Space><Space> :Unite file buffer<CR>
+nnoremap <Space><Space> :Unite file buffer<CR>
