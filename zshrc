@@ -1,36 +1,25 @@
-export ZSH=$HOME/.zplug/repos/robbyrussell/oh-my-zsh
+#oh-my-zsh---------------------------------------------------------------
+# Path to your oh-my-zsh installation.
+  export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="af-magic"
+ZSH_THEME="blinks"
 
-plugins=(git colored-man-pages)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zplug/init.zsh
+#zplug-------------------------------------------------------------------
+source $HOME/.zplug/init.zsh
 
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
-zplug "zsh-users/zaw"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-	echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load --verbose
-
-#rmmod pcspkr
-
-PATH=$PATH:./:$(ruby -e 'print Gem.user_dir')/bin
-
+#custom------------------------------------------------------------------
+unalias ls
+alias info='info --vi-keys'
 alias vi='vim'
 alias tig='tig --all'
 alias bc='bc -l'
 alias def='sdcv -n'
 alias tmux='tmux -2'
-alias python='python3'
+alias 'pac'='apt-get install'
+alias 'pacs'='apt-cache search'
 
 weather()
 {
@@ -41,3 +30,4 @@ deff()
 	sdcv -n $1 | less;
 }
 
+export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
