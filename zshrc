@@ -2,7 +2,7 @@
 # Path to your oh-my-zsh installation.
   export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="blinks"
+ZSH_THEME="dst"
 
 plugins=(git)
 
