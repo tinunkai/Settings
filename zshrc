@@ -11,7 +11,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zplug/init.zsh
 
 #custom------------------------------------------------------------------
-unalias ls
 alias info='info --vi-keys'
 alias vi='vim'
 alias tig='tig --all'

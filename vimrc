@@ -30,7 +30,7 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-set background=dark
+set background=light
 let g:solarized_termtrans=1
 colorscheme solarized
 syntax enable
