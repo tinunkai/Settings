@@ -17,8 +17,6 @@ alias tig='tig --all'
 alias bc='bc -l'
 alias def='sdcv -n'
 alias tmux='tmux -2'
-alias 'pac'='apt-get install'
-alias 'pacs'='apt-cache search'
 
 weather()
 {

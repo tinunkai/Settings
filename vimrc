@@ -18,6 +18,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'JuliaEditorSupport/julia-vim'
 
 " Required:
 call neobundle#end()
