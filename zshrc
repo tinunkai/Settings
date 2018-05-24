@@ -16,7 +16,8 @@ alias info='info --vi-keys'
 alias vi='vim'
 alias tig='tig --all'
 alias bc='bc -l'
-alias def='sdcv -n'
+#alias def='sdcv -n'
+alias def='ydcv'
 alias tmux='tmux -2'
 
 weather()
@@ -28,7 +29,7 @@ deff()
 	sdcv -n $1 | less;
 }
 
-export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
+export PATH=$HOME/go/bin:$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

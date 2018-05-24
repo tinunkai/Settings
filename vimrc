@@ -35,7 +35,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -56,8 +56,9 @@ set expandtab
 set cursorcolumn
 set cursorline
 set colorcolumn=96
+set statusline+=%F
 nnoremap <C-t> :wa<CR>:!make <CR>
-nnoremap <C-c> :SyntasticCheck<CR>
+nnoremap <C-c> :w<CR>:SyntasticCheck<CR>
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
 
