@@ -28,8 +28,12 @@ alias iv=vi
 
 export KEYTIMEOUT=1
 export EDITOR='nvim'
-bindkey -M vicmd ' ' edit-command-line
 bindkey -v
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^U' backward-kill-line
+bindkey -M viins '^K' kill-whole-line
+bindkey -M viins '^W' backward-delete-word
+bindkey -M vicmd '^V' edit-command-line
 
 weather()
 {

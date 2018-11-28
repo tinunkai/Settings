@@ -79,7 +79,8 @@ nnoremap <C-c> :w<CR>:SyntasticCheck<CR>
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
 nnoremap <Esc> :noh<CR>
-inoremap <C-o> <esc>
+inoremap <C-o> <Esc>
+inoremap <CR> <Esc>
 tnoremap <Esc> <C-\><C-n>
 
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
