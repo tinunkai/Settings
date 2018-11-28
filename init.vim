@@ -39,13 +39,15 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
 "Denite Settings--------------------------
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
 nmap <silent> <Space>t :<C-u>DeniteProjectDir filetype<CR>
 nmap <silent> <Space>p :<C-u>DeniteProjectDir file_rec<CR>
 nmap <silent> <Space>l :<C-u>DeniteProjectDir line<CR>
