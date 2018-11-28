@@ -22,8 +22,8 @@ if dein#load_state('/home/tinunkai/.cache/dein')
   call dein#add('tpope/vim-sensible')
   call dein#add('rust-lang/rust.vim')
   call dein#add('JuliaEditorSupport/julia-vim')
-  call dein#add('vim-syntastic/syntastic')
-  call dein#add('danchoi/elinks.vim')
+  "call dein#add('vim-syntastic/syntastic')
+  "call dein#add('danchoi/elinks.vim')
   call dein#add('isRuslan/vim-es6')
 
   " You can specify revision/branch/tag.
@@ -45,6 +45,19 @@ syntax enable
 
 "End dein Scripts-------------------------
 
+"Denite Settings--------------------------
+nmap <silent> <Space>t :<C-u>DeniteProjectDir filetype<CR>
+nmap <silent> <Space>p :<C-u>DeniteProjectDir file_rec<CR>
+nmap <silent> <Space>l :<C-u>DeniteProjectDir line<CR>
+nmap <silent> <Space>g :<C-u>DeniteProjectDir grep<CR>
+nmap <silent> <Space>] :<C-u>DeniteCursorWord grep<CR>
+"nmap <silent> <Space><C-u> :<C-u>Denite file_mru<CR>
+"nmap <silent> <Space><C-y> :<C-u>Denite neoyank<CR>
+nmap <silent> <Space>r :<C-u>DeniteProjectDir -resume<CR>
+nmap <silent> <Space>; :<C-u>DeniteProjectDir -resume -immediately -select=+1<CR>
+nmap <silent> <Space>, :<C-u>DeniteProjectDir -resume -immediately -select=-1<CR>
+"End Denite Settings----------------------
+
 set background=light
 let g:solarized_termtrans=1
 colorscheme solarized
@@ -57,10 +70,14 @@ set cursorcolumn
 set cursorline
 set colorcolumn=96
 set statusline+=%F
-nnoremap <C-t> :wa<CR>:!make <CR>
+nnoremap <C-t> :wa<CR>:terminal make<CR>i
 nnoremap <C-c> :w<CR>:SyntasticCheck<CR>
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
-nnoremap <esc> :noh<CR>
-"set printoptions=number:y
+nnoremap <Esc> :noh<CR>
+inoremap <C-o> <esc>
+tnoremap <Esc> <C-\><C-n>
+
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 
