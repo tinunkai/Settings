@@ -61,9 +61,11 @@ nmap <silent> <Space>, :<C-u>DeniteProjectDir -resume -immediately -select=-1<CR
 "End Denite Settings----------------------
 
 set background=light
-let g:solarized_termtrans=1
+"let g:solarized_termtrans=1
 colorscheme solarized
 syntax enable
+hi Search cterm=NONE ctermfg=white ctermbg=magenta
+
 set nu
 set ts=4
 set sw=4
