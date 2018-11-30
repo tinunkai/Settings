@@ -62,7 +62,7 @@ nmap <silent> <Space>; :<C-u>DeniteProjectDir -resume -immediately -select=+1<CR
 nmap <silent> <Space>, :<C-u>DeniteProjectDir -resume -immediately -select=-1<CR>
 "End Denite Settings----------------------
 
-set background=light
+set background=dark
 "let g:solarized_termtrans=1
 "let g:airline_theme='papercolor'
 let g:lightline = { 'colorscheme': 'PaperColor' }

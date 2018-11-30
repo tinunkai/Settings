@@ -34,6 +34,7 @@ bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^K' kill-whole-line
 bindkey -M viins '^W' backward-delete-word
 bindkey -M vicmd '^V' edit-command-line
+bindkey -M emacs '^V' edit-command-line
 
 weather()
 {
