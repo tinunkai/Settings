@@ -25,6 +25,8 @@ if dein#load_state('/home/tinunkai/.cache/dein')
   "call dein#add('vim-syntastic/syntastic')
   "call dein#add('danchoi/elinks.vim')
   call dein#add('isRuslan/vim-es6')
+  call dein#add('udalov/kotlin-vim')
+  call dein#add('itchyny/lightline.vim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
@@ -62,7 +64,9 @@ nmap <silent> <Space>, :<C-u>DeniteProjectDir -resume -immediately -select=-1<CR
 
 set background=light
 "let g:solarized_termtrans=1
-colorscheme solarized
+"let g:airline_theme='papercolor'
+let g:lightline = { 'colorscheme': 'PaperColor' }
+colorscheme PaperColor
 syntax enable
 hi Search cterm=NONE ctermfg=white ctermbg=magenta
 
@@ -80,7 +84,6 @@ nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
 nnoremap <Esc> :noh<CR>
 inoremap <C-o> <Esc>
-inoremap <CR> <Esc>
 tnoremap <Esc> <C-\><C-n>
 
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
