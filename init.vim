@@ -4,15 +4,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/tinunkai/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('$HOME/.cache/dein')
-  call dein#begin('$HOME/.cache/dein')
+if dein#load_state('/home/tinunkai/.cache/dein')
+  call dein#begin('/home/tinunkai/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/home/tinunkai/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('flazz/vim-colorschemes')
@@ -22,7 +22,7 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('tpope/vim-sensible')
   call dein#add('rust-lang/rust.vim')
   call dein#add('JuliaEditorSupport/julia-vim')
-  "call dein#add('vim-syntastic/syntastic')
+  call dein#add('vim-syntastic/syntastic')
   "call dein#add('danchoi/elinks.vim')
   call dein#add('isRuslan/vim-es6')
   call dein#add('udalov/kotlin-vim')
@@ -65,10 +65,10 @@ nmap <silent> <Space>, :<C-u>DeniteProjectDir -resume -immediately -select=-1<CR
 set background=dark
 "let g:solarized_termtrans=1
 "let g:airline_theme='papercolor'
-let g:lightline = { 'colorscheme': 'gruvbox' }
+"let g:lightline = { 'colorscheme': 'PaperColor' }
 colorscheme gruvbox
 syntax enable
-hi Search cterm=NONE ctermfg=white ctermbg=magenta
+"hi Search cterm=NONE ctermfg=white ctermbg=magenta
 
 set nu
 set ts=4
@@ -78,7 +78,7 @@ set cursorcolumn
 set cursorline
 set colorcolumn=96
 set statusline+=%F
-nnoremap <C-t> :wa<CR>:terminal make<CR>i
+nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
 nnoremap <C-c> :w<CR>:SyntasticCheck<CR>
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
