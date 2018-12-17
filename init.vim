@@ -16,13 +16,21 @@ if dein#load_state('$HOME/.cache/dein')
 
   " Add or remove your plugins here:
   call dein#add('flazz/vim-colorschemes')
+
+  "call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+  let g:deoplete#enable_at_startup = 1
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+
   call dein#add('Shougo/denite.nvim')
   call dein#add('tpope/vim-sensible')
   call dein#add('rust-lang/rust.vim')
   call dein#add('JuliaEditorSupport/julia-vim')
-  call dein#add('vim-syntastic/syntastic')
+  call dein#add('neomake/neomake')
   "call dein#add('danchoi/elinks.vim')
   call dein#add('isRuslan/vim-es6')
   call dein#add('udalov/kotlin-vim')
@@ -44,6 +52,9 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+
+" dein autocalls
+call neomake#configure#automake('rw')
 
 "End dein Scripts-------------------------
 
@@ -78,6 +89,7 @@ set cursorcolumn
 set cursorline
 set colorcolumn=96
 set statusline+=%F
+
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
 nnoremap <C-c> :w<CR>:SyntasticCheck<CR>
 nnoremap <C-j> :lnext<CR>
@@ -89,3 +101,6 @@ tnoremap <Esc> <C-\><C-n>
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
