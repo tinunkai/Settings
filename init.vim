@@ -30,7 +30,6 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('tpope/vim-sensible')
   call dein#add('rust-lang/rust.vim')
   call dein#add('JuliaEditorSupport/julia-vim')
-  call dein#add('neomake/neomake')
   "call dein#add('danchoi/elinks.vim')
   call dein#add('isRuslan/vim-es6')
   call dein#add('udalov/kotlin-vim')
@@ -54,7 +53,8 @@ if dein#check_install()
 endif
 
 " dein autocalls
-call neomake#configure#automake('rw')
+call dein#add('neomake/neomake')
+" call neomake#configure#automake('rw')
 
 "End dein Scripts-------------------------
 
@@ -89,9 +89,10 @@ set cursorcolumn
 set cursorline
 set colorcolumn=96
 set statusline+=%F
+set printoptions=portrait:n
 
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
-nnoremap <C-c> :w<CR>:SyntasticCheck<CR>
+nnoremap <C-c> :w<CR>:Neomake<CR>
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
 nnoremap <Esc> :noh<CR>
