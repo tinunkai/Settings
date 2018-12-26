@@ -36,7 +36,7 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('itchyny/lightline.vim')
 
   " You can specify revision/branch/tag.
-  call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
+  "call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
 
   " Required:
   call dein#end()
@@ -91,6 +91,7 @@ set colorcolumn=96
 set statusline+=%F
 set printoptions=portrait:n
 
+nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
 nnoremap <C-c> :w<CR>:Neomake<CR>
 nnoremap <C-j> :lnext<CR>
