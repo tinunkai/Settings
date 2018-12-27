@@ -17,12 +17,6 @@ if dein#load_state('$HOME/.cache/dein')
   " Add or remove your plugins here:
   call dein#add('flazz/vim-colorschemes')
 
-  "call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-  let g:deoplete#enable_at_startup = 1
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
 
@@ -33,6 +27,7 @@ if dein#load_state('$HOME/.cache/dein')
   "call dein#add('danchoi/elinks.vim')
   call dein#add('isRuslan/vim-es6')
   call dein#add('udalov/kotlin-vim')
+  call dein#add('Shougo/deoplete.nvim')
   call dein#add('itchyny/lightline.vim')
 
   " You can specify revision/branch/tag.
@@ -80,6 +75,7 @@ set background=dark
 colorscheme gruvbox
 syntax enable
 "hi Search cterm=NONE ctermfg=white ctermbg=magenta
+let g:deoplete#enable_at_startup = 1
 
 set nu
 set ts=4
