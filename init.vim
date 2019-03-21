@@ -29,6 +29,10 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('udalov/kotlin-vim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('sebastianmarkow/deoplete-rust')
+  call dein#add('posva/vim-vue')
+  call dein#add('sirtaj/vim-openscad')
 
   " You can specify revision/branch/tag.
   "call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
@@ -78,8 +82,8 @@ syntax enable
 let g:deoplete#enable_at_startup = 1
 
 set nu
-set ts=4
-set sw=4
+set ts=2
+set sw=2
 set expandtab
 set cursorcolumn
 set cursorline
@@ -88,16 +92,20 @@ set statusline+=%F
 set printoptions=portrait:n
 
 nnoremap zi :set fdm=indent<CR>
-nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
-nnoremap <C-c> :w<CR>:Neomake<CR>
+nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
+nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
 nnoremap <Esc> :noh<CR>
 inoremap <C-o> <Esc>
 tnoremap <Esc> <C-\><C-n>
+nnoremap <C-n> :tab sp<CR>
 
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
+autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
