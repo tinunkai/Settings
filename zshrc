@@ -1,16 +1,20 @@
-#setxkbmap -option ctrl:nocaps
-#oh-my-zsh---------------------------------------------------------------
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-ZSH_THEME="dst"
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-plugins=(git)
-#plugins=(vi-mode)
+autoload -Uz promptinit
+promptinit
+prompt paradox
 
-source $ZSH/oh-my-zsh.sh
-
-#custom------------------------------------------------------------------
+# Customize to your needs...
 alias info='info --vi-keys'
 alias vi=vim
 alias vim='nvim'
@@ -25,6 +29,7 @@ alias open='xdg-open'
 alias dstat='dstat -am'
 alias sl=ls
 alias iv=vi
+alias say=espeak
 
 export KEYTIMEOUT=1
 export EDITOR='nvim'
@@ -36,17 +41,22 @@ bindkey -M viins '^W' backward-delete-word
 bindkey -M vicmd '^V' edit-command-line
 bindkey -M emacs '^V' edit-command-line
 
-weather()
+wttr()
 {
-	curl wttr.in/$1
+    # change Paris to your default location
+    local request="wttr.in/${1-kashiwara}"
+    request+='?qAF&lang=zh'
+    [ "$COLUMNS" -lt 125 ] && request+='&n'
+    curl --compressed "$request"
 }
+
 
 source /usr/bin/aws_zsh_completer.sh
 
 PATH=$PATH:/home/tinunkai/android-studio/bin
+PATH=$PATH:/home/tinunkai/.bin
 
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
