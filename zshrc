@@ -1,16 +1,21 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+source $HOME/.zplug/init.zsh
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+zplug "zplug/zplug", hook-build:'zplug --self-manage'
+zplug "zsh-users/zaw", use:"zaw.zsh"
+zplug "sorin-ionescu/prezto", hook-build:'ln -s $HOME/.zplug/repos/sorin-ionescu/prezto $HOME/.zprezto'
+
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook is-at-least
+if is-at-least 4.3.10; then
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
 fi
 
-# Customize to your needs...
+zplug load #--verbose
+
+# custom
+
 alias info='info --vi-keys'
 alias vi=vim
 alias vim='nvim'
@@ -29,13 +34,16 @@ alias say=espeak
 
 export KEYTIMEOUT=1
 export EDITOR='nvim'
-bindkey -v
+export VISUAL='nvim'
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^K' kill-whole-line
 bindkey -M viins '^W' backward-delete-word
 bindkey -M vicmd '^V' edit-command-line
 bindkey -M emacs '^V' edit-command-line
+
+bindkey '^@' zaw-cdr
+bindkey '^R' zaw-history
 
 wttr()
 {
@@ -46,13 +54,4 @@ wttr()
     curl --compressed "$request"
 }
 
-
-source /usr/bin/aws_zsh_completer.sh
-
-PATH=$PATH:/home/tinunkai/android-studio/bin
-PATH=$PATH:/home/tinunkai/.bin
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+PATH=$PATH:$HOME/.local/bin
