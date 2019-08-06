@@ -15,7 +15,7 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('flazz/vim-colorschemes')
+  call dein#add('rafi/awesome-vim-colorschemes')
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
@@ -33,6 +33,7 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('sebastianmarkow/deoplete-rust')
   call dein#add('posva/vim-vue')
   call dein#add('sirtaj/vim-openscad')
+  call dein#add('neovimhaskell/haskell-vim')
 
   " You can specify revision/branch/tag.
   "call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
@@ -76,20 +77,29 @@ set background=dark
 "let g:solarized_termtrans=1
 "let g:airline_theme='papercolor'
 "let g:lightline = { 'colorscheme': 'PaperColor' }
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme gruvbox
 syntax enable
-"hi Search cterm=NONE ctermfg=white ctermbg=magenta
+hi Search cterm=NONE ctermfg=white ctermbg=magenta
 let g:deoplete#enable_at_startup = 1
 
 set nu
-set ts=2
-set sw=2
+set ts=4
+set sw=4
 set expandtab
 set cursorcolumn
 set cursorline
-set colorcolumn=96
+set colorcolumn=100
 set statusline+=%F
 set printoptions=portrait:n
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
@@ -98,8 +108,9 @@ nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
 nnoremap <Esc> :noh<CR>
 inoremap <C-o> <Esc>
-tnoremap <Esc> <C-\><C-n>
+tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
+nnoremap <C-g> :%!gpg -as<CR>
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
