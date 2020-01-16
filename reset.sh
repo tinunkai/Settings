@@ -23,4 +23,5 @@ mkdir -p $HOME/.config/nvim
 cp ./init.vim $HOME/.config/nvim/init.vim
 
 # pyenv
+rm -rf .pyenv
 curl https://pyenv.run | bash
