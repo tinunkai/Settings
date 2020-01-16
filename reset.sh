@@ -25,3 +25,8 @@ cp ./init.vim $HOME/.config/nvim/init.vim
 # pyenv
 rm -rf $HOME/.pyenv
 curl https://pyenv.run | bash
+
+# tmux
+rm -rf $HOME/.tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cp ./tmux.conf $HOME/.tmux.conf
