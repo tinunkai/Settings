@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 set -x
 
+cp ./toprc $HOME/.toprc
+
 # set prezto for zsh
 rm -rf $HOME/.zprezto $HOME/.zlogin $HOME/.zlogout $HOME/.zpreztorc $HOME/.zprofile $HOME/.zshenv $HOME/.zshrc
 
