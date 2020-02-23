@@ -25,6 +25,7 @@ alias dstat='dstat -am'
 alias sl=ls
 alias iv=vi
 alias say=espeak
+alias tmux='tmux -u'
 
 export KEYTIMEOUT=1
 export EDITOR='nvim'
