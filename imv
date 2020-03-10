@@ -1,0 +1,6 @@
+#~/.config/imv/config
+[options]
+height = 600
+width = 800
+scaling_mode = shrink
+background = 282828
