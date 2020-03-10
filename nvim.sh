@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 
+rm -rf ~/.config/nvim ~/.cache/dein ~/.init.vim
+
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 rm installer.sh
