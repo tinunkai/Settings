@@ -7,6 +7,4 @@ set -x
 
 ./nvim.sh
 
-./pyenv.sh
-
 ./tmux.sh
