@@ -35,6 +35,8 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('posva/vim-vue')
     call dein#add('sirtaj/vim-openscad')
     call dein#add('neovimhaskell/haskell-vim')
+    call dein#add('khardix/vim-literate')
+    call dein#add('nvie/vim-flake8')
 
     " Required:
     call dein#end()
@@ -97,6 +99,7 @@ let g:deoplete#enable_at_startup = 1
 set nu
 set ts=4
 set sw=4
+set colorcolumn=72,79
 set expandtab
 set cursorcolumn
 set cursorline
@@ -123,9 +126,12 @@ nnoremap <C-g> :%!gpg -as<CR>
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
+autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+
+autocmd Filetype python autocmd BufWritePost * call flake8#Flake8()
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
