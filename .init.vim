@@ -35,6 +35,8 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('posva/vim-vue')
     call dein#add('sirtaj/vim-openscad')
     call dein#add('neovimhaskell/haskell-vim')
+    call dein#add('khardix/vim-literate')
+    call dein#add('nvie/vim-flake8')
 
     " Required:
     call dein#end()
@@ -97,10 +99,10 @@ let g:deoplete#enable_at_startup = 1
 set nu
 set ts=4
 set sw=4
+set colorcolumn=73,80
 set expandtab
 set cursorcolumn
 set cursorline
-set colorcolumn=100
 set statusline+=%F
 set printoptions=portrait:n
 
@@ -117,14 +119,15 @@ nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
 nnoremap <C-j> :lnext<CR>
 nnoremap <C-k> :lprev<CR>
-nnoremap <Esc> :noh<CR>
 inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
 nnoremap <C-g> :%!gpg -as<CR>
+autocmd Filetype python nnoremap <C-f> :call flake8#Flake8()<CR>
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
+autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
