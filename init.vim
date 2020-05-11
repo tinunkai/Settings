@@ -123,6 +123,7 @@ inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
 nnoremap <C-g> :%!gpg -as<CR>
+autocmd Filetype python nnoremap <C-f> :call flake8#Flake8()<CR>
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
@@ -130,8 +131,6 @@ autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
-
-autocmd Filetype python autocmd BufWritePost * call flake8#Flake8()
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
