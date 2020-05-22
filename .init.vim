@@ -117,8 +117,8 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
-nnoremap <C-j> :lnext<CR>
-nnoremap <C-k> :lprev<CR>
+nnoremap <C-j> :tabn<CR>
+nnoremap <C-k> :tabp<CR>
 inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
