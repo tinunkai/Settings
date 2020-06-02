@@ -99,7 +99,7 @@ let g:deoplete#enable_at_startup = 1
 set nu
 set ts=4
 set sw=4
-set colorcolumn=72,79
+set colorcolumn=73,80
 set expandtab
 set cursorcolumn
 set cursorline
@@ -117,13 +117,24 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
-nnoremap <C-j> :lnext<CR>
-nnoremap <C-k> :lprev<CR>
+nnoremap <C-j> :tabn<CR>
+nnoremap <C-k> :tabp<CR>
 inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
 nnoremap <C-g> :%!gpg -as<CR>
 autocmd Filetype python nnoremap <C-f> :call flake8#Flake8()<CR>
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+nnoremap ^ g^
+nnoremap gj j
+nnoremap gk k
+nnoremap g0 0
+nnoremap g$ $
+nnoremap g^ ^
+set linebreak
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
