@@ -15,7 +15,9 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
     " Add or remove your plugins here:
-    call dein#add('rafi/awesome-vim-colorschemes')
+    "call dein#add('rafi/awesome-vim-colorschemes')
+    "call dein#add('jlesquembre/base16-neovim')
+    call dein#add('chriskempson/base16-vim')
 
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
@@ -86,20 +88,16 @@ function! s:denite_my_settings() abort
 endfunction
 "End Denite Settings----------------------
 
-set background=dark
-"let g:solarized_termtrans=1
-"let g:airline_theme='papercolor'
-"let g:lightline = { 'colorscheme': 'PaperColor' }
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme gruvbox
+colorscheme base16-tomorrow-night
+set termguicolors
 syntax enable
-hi Search cterm=NONE ctermfg=white ctermbg=magenta
+"hi Search cterm=NONE ctermfg=white ctermbg=magenta
 let g:deoplete#enable_at_startup = 1
 
 "set nu
 set ts=4
 set sw=4
-set colorcolumn=73,80
+set colorcolumn=91
 set expandtab
 set cursorcolumn
 set cursorline
@@ -123,6 +121,7 @@ inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
 nnoremap <C-g> :%!gpg -as<CR>
+nnoremap <C-s> :!sml %<CR>
 autocmd Filetype python nnoremap <C-f> :call flake8#Flake8()<CR>
 nnoremap j gj
 nnoremap k gk

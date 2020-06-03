@@ -1,6 +1,5 @@
-xrandr --output VGA-1 --rotate right --right-of HDMI-1 &
-fcitx &
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
+#xrandr --addmode VGA1 1920x1080 && xrandr --output VGA1 --mode 1920x1080 &
+xrandr --output VGA1 --off
+xset s off
+xset b off
 exec i3
