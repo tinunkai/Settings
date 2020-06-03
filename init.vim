@@ -96,7 +96,7 @@ syntax enable
 hi Search cterm=NONE ctermfg=white ctermbg=magenta
 let g:deoplete#enable_at_startup = 1
 
-set nu
+"set nu
 set ts=4
 set sw=4
 set colorcolumn=73,80
