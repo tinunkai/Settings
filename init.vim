@@ -121,7 +121,7 @@ inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
 nnoremap <C-g> :%!gpg -as<CR>
-nnoremap <C-s> :!sml %<CR>
+nnoremap <C-s> :wa<CR>:sp<CR><C-W>j:terminal sml %<CR>i
 autocmd Filetype python nnoremap <C-f> :call flake8#Flake8()<CR>
 nnoremap j gj
 nnoremap k gk
