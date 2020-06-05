@@ -11,13 +11,15 @@ static int borderpx = 2;
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
- * 2: utmp option
+ * 2: scroll and/or utmp
  * 3: SHELL environment variable
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
 static char *shell = "/bin/sh";
 char *utmp = NULL;
+/* scroll program: to enable use a string like "scroll" */
+char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
@@ -84,23 +86,22 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  /* gruvbox color scheme */
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
+    "#1d1f21", /* base00 */
+    "#cc6666", /* base08 */
+    "#b5bd68", /* base0B */
+    "#f0c674", /* base0A */
+    "#81a2be", /* base0D */
+    "#b294bb", /* base0E */
+    "#8abeb7", /* base0C */
+    "#c5c8c6", /* base05 */
+    "#969896", /* base03 */
+    "#de935f", /* base09 */
+    "#282a2e", /* base01 */
+    "#373b41", /* base02 */
+    "#b4b7b4", /* base04 */
+    "#e0e0e0", /* base06 */
+    "#a3685a", /* base0F */
+    "#ffffff", /* base07 */
 };
 
 
