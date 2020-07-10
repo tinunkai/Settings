@@ -39,6 +39,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('neovimhaskell/haskell-vim')
     call dein#add('khardix/vim-literate')
     call dein#add('nvie/vim-flake8')
+    call dein#add('mechatroner/rainbow_csv')
 
     " Required:
     call dein#end()
@@ -88,7 +89,7 @@ function! s:denite_my_settings() abort
 endfunction
 "End Denite Settings----------------------
 
-colorscheme base16-tomorrow-night
+"colorscheme base16-tomorrow-night
 set termguicolors
 syntax enable
 "hi Search cterm=NONE ctermfg=white ctermbg=magenta
@@ -100,7 +101,7 @@ set sw=4
 set colorcolumn=91
 set expandtab
 set cursorcolumn
-set cursorline
+"set cursorline
 set statusline+=%F
 set printoptions=portrait:n
 
