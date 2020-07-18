@@ -101,7 +101,7 @@ set sw=4
 set colorcolumn=91
 set expandtab
 set cursorcolumn
-"set cursorline
+set cursorline
 set statusline+=%F
 set printoptions=portrait:n
 
