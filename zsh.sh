@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -x
 
-rm -rf $HOME/.zprezto $HOME/.zlogin $HOME/.zlogout $HOME/.zpreztorc $HOME/.zprofile $HOME/.zshenv $HOME/.zshrc
+rm -rf $HOME/.zprezto $HOME/.zlogin $HOME/.zlogout $HOME/.zpreztorc $HOME/.zprofile $HOME/.zshenv $HOME/.zshrc $HOME/.zplug
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
@@ -15,4 +15,3 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 
 cp zsh/zshrc $HOME/.zshrc
 cp zsh/zpreztorc $HOME/.zpreztorc
-
