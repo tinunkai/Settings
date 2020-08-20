@@ -89,7 +89,7 @@ function! s:denite_my_settings() abort
 endfunction
 "End Denite Settings----------------------
 
-"colorscheme base16-tomorrow-night
+colorscheme base16-tomorrow-night
 set termguicolors
 syntax enable
 "hi Search cterm=NONE ctermfg=white ctermbg=magenta
