@@ -7,5 +7,6 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 xset s off
 xset b off
+xset -b
 slstatus &
 exec dwm
