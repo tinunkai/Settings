@@ -64,7 +64,7 @@ URxvt.lineSpace: 0
 !URxvt.internalBorder: 24
 URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
-!URxvt.saveline: 2048
+URxvt.saveLines: 0
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: false
