@@ -40,6 +40,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('khardix/vim-literate')
     call dein#add('nvie/vim-flake8')
     call dein#add('mechatroner/rainbow_csv')
+    call dein#add('lepture/vim-jinja')
 
     " Required:
     call dein#end()
@@ -140,8 +141,12 @@ autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
 autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType jinja set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType htmldjango set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
