@@ -41,6 +41,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('nvie/vim-flake8')
     call dein#add('mechatroner/rainbow_csv')
     call dein#add('lepture/vim-jinja')
+    call dein#add('wakatime/vim-wakatime')
 
     " Required:
     call dein#end()
