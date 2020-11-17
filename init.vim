@@ -15,8 +15,6 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
     " Add or remove your plugins here:
-    "call dein#add('rafi/awesome-vim-colorschemes')
-    "call dein#add('jlesquembre/base16-neovim')
     call dein#add('chriskempson/base16-vim')
 
     call dein#add('Shougo/neosnippet.vim')
@@ -24,13 +22,13 @@ if dein#load_state('$HOME/.cache/dein')
 
     call dein#add('Shougo/denite.nvim')
     call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-    call dein#add('tpope/vim-sensible')
     call dein#add('rust-lang/rust.vim')
     call dein#add('JuliaEditorSupport/julia-vim')
     call dein#add('isRuslan/vim-es6')
     call dein#add('udalov/kotlin-vim')
-    call dein#add('Shougo/deoplete.nvim')
+    "call dein#add('Shougo/deoplete.nvim')
+    "call dein#add('roxma/vim-hug-neovim-rpc')
+    "call dein#add('tpope/vim-sensible')
     call dein#add('itchyny/lightline.vim')
     call dein#add('leafgarland/typescript-vim')
     call dein#add('sebastianmarkow/deoplete-rust')
@@ -56,6 +54,7 @@ syntax enable
 if dein#check_install()
     call dein#install()
 endif
+"call deoplete#enable()
 
 "End dein Scripts-------------------------
 
@@ -94,8 +93,6 @@ endfunction
 colorscheme base16-tomorrow-night
 set termguicolors
 syntax enable
-"hi Search cterm=NONE ctermfg=white ctermbg=magenta
-let g:deoplete#enable_at_startup = 1
 
 "set nu
 set ts=4
@@ -138,7 +135,6 @@ nnoremap g$ $
 nnoremap g^ ^
 set linebreak
 
-autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
 autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
