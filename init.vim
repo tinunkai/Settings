@@ -26,9 +26,9 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('JuliaEditorSupport/julia-vim')
     call dein#add('isRuslan/vim-es6')
     call dein#add('udalov/kotlin-vim')
-    "call dein#add('Shougo/deoplete.nvim')
-    "call dein#add('roxma/vim-hug-neovim-rpc')
-    "call dein#add('tpope/vim-sensible')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+    call dein#add('tpope/vim-sensible')
     call dein#add('itchyny/lightline.vim')
     call dein#add('leafgarland/typescript-vim')
     call dein#add('sebastianmarkow/deoplete-rust')
@@ -54,7 +54,7 @@ syntax enable
 if dein#check_install()
     call dein#install()
 endif
-"call deoplete#enable()
+call deoplete#enable()
 
 "End dein Scripts-------------------------
 
