@@ -36,7 +36,6 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('sirtaj/vim-openscad')
     call dein#add('neovimhaskell/haskell-vim')
     call dein#add('khardix/vim-literate')
-    call dein#add('nvie/vim-flake8')
     call dein#add('mechatroner/rainbow_csv')
     call dein#add('lepture/vim-jinja')
     call dein#add('wakatime/vim-wakatime')
@@ -114,7 +113,7 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
-nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal make<CR>i
+nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
 nnoremap <C-j> :tabn<CR>
 nnoremap <C-k> :tabp<CR>
 inoremap <C-o> <Esc>
@@ -123,7 +122,6 @@ nnoremap <C-n> :tab sp<CR>
 nnoremap <C-g> :%!gpg -as<CR>
 nnoremap <C-s> :wa<CR>:sp<CR><C-W>j:terminal sml %<CR>i
 nnoremap <silent> <esc> :noh<CR>
-autocmd Filetype python nnoremap <C-f> :call flake8#Flake8()<CR>
 nnoremap j gj
 nnoremap k gk
 nnoremap 0 g0
