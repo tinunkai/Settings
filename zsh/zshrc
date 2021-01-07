@@ -9,6 +9,7 @@ source $HOME/.zplug/init.zsh
 zplug "esc/conda-zsh-completion"
 zplug "peterhurford/up.zsh"
 zplug "lukechilds/zsh-nvm"
+zplug "wbingli/zsh-wakatime"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -22,10 +23,10 @@ zplug load
 # Customize
 
 alias info='info --vi-keys'
-alias em='emacs -nw'
 alias vi=em
 alias vim='nvim'
 alias vimdiff='nvim -d'
+alias em='emacs -nw'
 alias tig='tig --all'
 alias bc='bc -l'
 alias def='ydcv'
@@ -60,11 +61,3 @@ wttr()
 }
 
 PATH=$PATH:$HOME/.local/bin
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/tinunkai/google-cloud-sdk/path.zsh.inc' ]; then . '/home/tinunkai/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/tinunkai/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/tinunkai/google-cloud-sdk/completion.zsh.inc'; fi
-
-source ~/miniconda3/bin/activate
