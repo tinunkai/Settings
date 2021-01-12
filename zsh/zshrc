@@ -23,7 +23,7 @@ zplug load
 # Customize
 
 alias info='info --vi-keys'
-alias vi=em
+alias vi=vim
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias em='emacs -nw'
