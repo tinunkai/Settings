@@ -50,4 +50,5 @@
 ;(unpin! t)
 
 (package! wakatime-mode)
+(package! csv-mode)
 (package! evil-snipe :disable t)
