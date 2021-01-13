@@ -16,29 +16,18 @@ if dein#load_state('$HOME/.cache/dein')
 
     " Add or remove your plugins here:
     call dein#add('chriskempson/base16-vim')
-
-    call dein#add('Shougo/neosnippet.vim')
-    call dein#add('Shougo/neosnippet-snippets')
-
-    call dein#add('Shougo/denite.nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('rust-lang/rust.vim')
-    call dein#add('JuliaEditorSupport/julia-vim')
-    call dein#add('isRuslan/vim-es6')
-    call dein#add('udalov/kotlin-vim')
-    call dein#add('Shougo/deoplete.nvim')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-    call dein#add('tpope/vim-sensible')
     call dein#add('itchyny/lightline.vim')
-    call dein#add('leafgarland/typescript-vim')
+    call dein#add('Shougo/denite.nvim')
+    call dein#add('rust-lang/rust.vim')
+    call dein#add('Shougo/deoplete.nvim')
     call dein#add('sebastianmarkow/deoplete-rust')
-    call dein#add('posva/vim-vue')
-    call dein#add('sirtaj/vim-openscad')
     call dein#add('neovimhaskell/haskell-vim')
-    call dein#add('khardix/vim-literate')
     call dein#add('mechatroner/rainbow_csv')
     call dein#add('lepture/vim-jinja')
     call dein#add('wakatime/vim-wakatime')
+    call dein#add('MaxMEllon/vim-jsx-pretty')
+    call dein#add('vim-python/python-syntax')
+    call dein#add('tmsvg/pear-tree')
 
     " Required:
     call dein#end()
@@ -110,6 +99,7 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+let g:lightline = {'colorscheme': 'Tomorrow_Night'}
 
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
