@@ -54,10 +54,15 @@
 *color21:      base06
 
 !! URxvt Appearance
-URxvt.font: xft:Hack:style=Regular
-URxvt.boldFont: xft:Hack:style=Bold
-URxvt.italicFont: xft:Hack:style=Italic
-URxvt.boldItalicfont: xft:Hack:style=Bold Italic
+URxvt.font: \
+    xft:Hack:style=Regular, \
+    xft:size=12:Noto Sans CJK SC,Noto Sans CJK SC Thin:style=Thin,Regular
+URxvt.boldFont: xft:Hack:style=Bold, \
+    xft:size=12:Noto Sans CJK SC,Noto Sans CJK SC Thin:style=Thin,Regular
+URxvt.italicFont: xft:Hack:style=Italic, \
+    xft:size=12:Noto Sans CJK SC,Noto Sans CJK SC Thin:style=Thin,Regular
+URxvt.boldItalicfont: xft:Hack:style=Bold Italic, \
+    xft:size=12:Noto Sans CJK SC,Noto Sans CJK SC Thin:style=Thin,Regular
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 !URxvt.geometry: 92x24
@@ -69,7 +74,7 @@ URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: false
 URxvt.depth: 32
-!URxvt.iso14755: false
+URxvt.iso14755: false
 
 !! Copy Paste & Other Extensions
 URxvt.perl-ext-common: default,keyboard-select
@@ -80,3 +85,5 @@ URxvt.keyboard-select.clipboard: true
 URxvt.urlLauncher: chromium
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
+URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard

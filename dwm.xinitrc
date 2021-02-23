@@ -1,12 +1,11 @@
-xrandr && xrandr --output VGA1 --rotate right --right-of HDMI1 && xrandr --addmode VGA1 1680x1050 && xrandr --output VGA1 --mode 1680x1050 &
+xrandr --output HDMI1 --rotate left --left-of VGA1
+setxkbmap us
 xrdb .Xresources
-fcitx &
 lightscreen - &
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
+fcitx5 &
 xset s off
 xset b off
 xset -b
 slstatus &
+unclutter &
 exec dwm
