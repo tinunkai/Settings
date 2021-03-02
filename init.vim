@@ -27,7 +27,10 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('wakatime/vim-wakatime')
     call dein#add('MaxMEllon/vim-jsx-pretty')
     call dein#add('vim-python/python-syntax')
-    call dein#add('tmsvg/pear-tree')
+    call dein#add('vim-scripts/vbnet.vim')
+    call dein#add('LnL7/vim-nix')
+    call dein#add('lervag/vimtex')
+    call dein#add('jceb/vim-orgmode')
 
     " Required:
     call dein#end()
@@ -82,7 +85,7 @@ colorscheme base16-tomorrow-night
 set termguicolors
 syntax enable
 
-"set nu
+set nonu
 set ts=4
 set sw=4
 set colorcolumn=91
@@ -123,6 +126,9 @@ nnoremap g0 0
 nnoremap g$ $
 nnoremap g^ ^
 set linebreak
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
+set fileformats=unix,dos,mac
 
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
 autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
@@ -132,8 +138,6 @@ autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType htmldjango set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType tex set tabstop=2|set shiftwidth=2|set expandtab
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+au BufNewFile,BufRead *.cls set ft=vbnet
