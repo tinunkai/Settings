@@ -139,5 +139,6 @@ autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType htmldjango set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType tex inoremap <silent> \bb \begin{equation}<CR>\end{equation}<Esc>ko
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead *.cls set ft=vbnet
