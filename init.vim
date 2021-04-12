@@ -26,11 +26,11 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('lepture/vim-jinja')
     call dein#add('wakatime/vim-wakatime')
     call dein#add('MaxMEllon/vim-jsx-pretty')
-    call dein#add('vim-python/python-syntax')
     call dein#add('vim-scripts/vbnet.vim')
     call dein#add('LnL7/vim-nix')
     call dein#add('lervag/vimtex')
     call dein#add('jceb/vim-orgmode')
+    call dein#add('vim-python/python-syntax')
 
     " Required:
     call dein#end()
@@ -103,6 +103,8 @@ let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 let g:lightline = {'colorscheme': 'Tomorrow_Night'}
+let g:python_highlight_all = 1
+let g:vimtex_indent_enabled = 0
 
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
@@ -140,5 +142,11 @@ autocmd FileType htmldjango set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex inoremap <silent> \bb \begin{equation}<CR>\end{equation}<Esc>ko
+autocmd FileType tex inoremap <silent> \tb \textbf{}<Esc>i
+autocmd FileType tex inoremap <silent> \mr \mathrm{}<Esc>i
+autocmd FileType tex set autoindent&
+autocmd FileType tex set cindent&
+autocmd FileType tex set smartindent&
+autocmd FileType tex set indentexpr&
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead *.cls set ft=vbnet
