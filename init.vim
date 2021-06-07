@@ -142,8 +142,8 @@ autocmd FileType htmldjango set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex inoremap <silent> \bb \begin{equation}<CR>\end{equation}<Esc>ko
-autocmd FileType tex inoremap <silent> \tb \textbf{}<Esc>i
-autocmd FileType tex inoremap <silent> \mr \mathrm{}<Esc>i
+autocmd FileType tex inoremap <silent> \tb \textbf{<Esc>a
+autocmd FileType tex inoremap <silent> \mr \mathrm{<Esc>a
 autocmd FileType tex set autoindent&
 autocmd FileType tex set cindent&
 autocmd FileType tex set smartindent&
