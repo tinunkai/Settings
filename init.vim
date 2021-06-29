@@ -108,6 +108,7 @@ let g:vimtex_indent_enabled = 0
 
 nnoremap zi :set fdm=indent<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
+"nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR><C-\><C-n>G<C-w>k
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
 nnoremap <C-j> :tabn<CR>
 nnoremap <C-k> :tabp<CR>
@@ -144,6 +145,8 @@ autocmd FileType tex set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex inoremap <silent> \bb \begin{equation}<CR>\end{equation}<Esc>ko
 autocmd FileType tex inoremap <silent> \tb \textbf{<Esc>a
 autocmd FileType tex inoremap <silent> \mr \mathrm{<Esc>a
+autocmd FileType tex inoremap <silent> _max _{\mathrm{max}}<Esc>a
+autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 autocmd FileType tex set autoindent&
 autocmd FileType tex set cindent&
 autocmd FileType tex set smartindent&
