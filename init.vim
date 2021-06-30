@@ -115,7 +115,7 @@ nnoremap <C-k> :tabp<CR>
 inoremap <C-o> <Esc>
 tnoremap <C-o> <C-\><C-n>
 nnoremap <C-n> :tab sp<CR>
-nnoremap <C-g> :%!gpg -as<CR>
+"nnoremap <C-g> :%!gpg -as<CR>
 nnoremap <C-s> :wa<CR>:sp<CR><C-W>j:terminal sml %<CR>i
 nnoremap <silent> <esc> :noh<CR>
 nnoremap j gj
