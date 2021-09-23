@@ -31,6 +31,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('lervag/vimtex')
     call dein#add('jceb/vim-orgmode')
     call dein#add('vim-python/python-syntax')
+    call dein#add('plasticboy/vim-markdown')
 
     " Required:
     call dein#end()
@@ -88,7 +89,7 @@ syntax enable
 set nonu
 set ts=4
 set sw=4
-set colorcolumn=91
+set colorcolumn=96
 set expandtab
 set cursorcolumn
 set cursorline
@@ -106,7 +107,7 @@ let g:lightline = {'colorscheme': 'Tomorrow_Night'}
 let g:python_highlight_all = 1
 let g:vimtex_indent_enabled = 0
 
-nnoremap zi :set fdm=indent<CR>
+nnoremap zi :set fdm=syntax<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
 "nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR><C-\><C-n>G<C-w>k
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
@@ -128,7 +129,7 @@ nnoremap gk k
 nnoremap g0 0
 nnoremap g$ $
 nnoremap g^ ^
-set linebreak
+"set linebreak
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
