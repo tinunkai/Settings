@@ -20,7 +20,7 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('Shougo/denite.nvim')
     call dein#add('rust-lang/rust.vim')
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('sebastianmarkow/deoplete-rust')
+    call dein#add('racer-rust/vim-racer')
     call dein#add('neovimhaskell/haskell-vim')
     call dein#add('mechatroner/rainbow_csv')
     call dein#add('lepture/vim-jinja')
@@ -32,6 +32,9 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('jceb/vim-orgmode')
     call dein#add('vim-python/python-syntax')
     call dein#add('plasticboy/vim-markdown')
+    call dein#add('SirVer/ultisnips')
+    call dein#add('honza/vim-snippets')
+    call dein#add('cespare/vim-toml')
 
     " Required:
     call dein#end()
@@ -95,6 +98,10 @@ set cursorcolumn
 set cursorline
 set statusline+=%F
 set printoptions=portrait:n
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
