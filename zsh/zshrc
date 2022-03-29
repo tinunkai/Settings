@@ -37,7 +37,6 @@ alias sl=ls
 alias iv=vi
 alias say=espeak
 alias matrix='cmatrix -ab -u 3'
-alias tmux='tmux -2'
 alias vm='vmstat -t -S M 1'
 
 export KEYTIMEOUT=1
