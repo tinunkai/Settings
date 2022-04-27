@@ -2,6 +2,10 @@
 set -x
 
 rm -rf $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+rm -rf $HOME/.config/nvim/init.vim
+rm -rf $HOME/.init.vim
+rm -rf $HOME/.init.lua
+rm -rf $HOME/.plugins.lua
 
 git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 

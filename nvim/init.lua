@@ -15,7 +15,12 @@ vim.api.nvim_set_option('fileformats', 'unix,dos,mac')
 vim.api.nvim_set_var('mapleader', 'm')
 
 vim.cmd [[
-colorscheme base16-tomorrow-night
+autocmd BufWritePost plugins.lua,.plugins.lua call Packin()
+function Packin()
+  PackerInstall
+  PackerUpdate
+  PackerCompile
+endfunction
 
 nnoremap zi :set fdm=syntax<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
@@ -47,12 +52,7 @@ autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua set tabstop=2|set shiftwidth=2|set expandtab
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
-autocmd BufWritePost plugins.lua,.plugins.lua call Packin()
-function Packin()
-  PackerInstall
-  PackerUpdate
-  PackerCompile
-endfunction
+colorscheme base16-tomorrow-night
 ]]
 
 require'orgmode'.setup_ts_grammar()
