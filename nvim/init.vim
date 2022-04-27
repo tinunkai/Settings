@@ -21,20 +21,21 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('rust-lang/rust.vim')
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('racer-rust/vim-racer')
-    call dein#add('neovimhaskell/haskell-vim')
+    "call dein#add('neovimhaskell/haskell-vim')
     call dein#add('mechatroner/rainbow_csv')
     call dein#add('lepture/vim-jinja')
     call dein#add('wakatime/vim-wakatime')
-    call dein#add('MaxMEllon/vim-jsx-pretty')
-    call dein#add('vim-scripts/vbnet.vim')
-    call dein#add('LnL7/vim-nix')
-    call dein#add('lervag/vimtex')
-    call dein#add('jceb/vim-orgmode')
+    "call dein#add('MaxMEllon/vim-jsx-pretty')
+    "call dein#add('vim-scripts/vbnet.vim')
+    "call dein#add('LnL7/vim-nix')
+    "call dein#add('lervag/vimtex')
+    call dein#add('nvim-treesitter/nvim-treesitter')
+    call dein#add('nvim-orgmode/orgmode')
     call dein#add('vim-python/python-syntax')
-    call dein#add('plasticboy/vim-markdown')
+    "call dein#add('plasticboy/vim-markdown')
     call dein#add('SirVer/ultisnips')
     call dein#add('honza/vim-snippets')
-    call dein#add('cespare/vim-toml')
+    "call dein#add('cespare/vim-toml')
 
     " Required:
     call dein#end()
@@ -50,6 +51,8 @@ if dein#check_install()
     call dein#install()
 endif
 call deoplete#enable()
+
+call dein#check_clean()
 
 "End dein Scripts-------------------------
 
@@ -140,16 +143,10 @@ nnoremap g^ ^
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
+let mapleader="m"
 
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set ft=typescript
-autocmd FileType javascriptreact set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType json set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType jinja set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType htmldjango set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType tex set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua
+    \ set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType tex inoremap <silent> \bb \begin{equation}<CR>\end{equation}<Esc>ko
 autocmd FileType tex inoremap <silent> \tb \textbf{<Esc>a
 autocmd FileType tex inoremap <silent> \mr \mathrm{<Esc>a
@@ -161,3 +158,31 @@ autocmd FileType tex set smartindent&
 autocmd FileType tex set indentexpr&
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 au BufNewFile,BufRead *.cls set ft=vbnet
+
+lua << EOF
+
+-- Load custom tree-sitter grammar for org filetype
+require('orgmode').setup_ts_grammar()
+
+-- Tree-sitter configuration
+require'nvim-treesitter.configs'.setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+  ensure_installed = {'python'},
+  ensure_installed = {'rust'},
+  ensure_installed = {'lua'},
+}
+
+require('orgmode').setup({
+  mappings = {
+    org = {
+      org_toggle_checkbox = '<Leader>c',
+    },
+  },
+})
+EOF
