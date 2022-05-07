@@ -8,6 +8,13 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
 
   use 'neovim/nvim-lspconfig'
+  use 'tweekmonster/django-plus.vim'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    }
+  }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'

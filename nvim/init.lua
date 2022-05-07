@@ -5,8 +5,8 @@ vim.api.nvim_set_option('cursorcolumn', true)
 vim.api.nvim_set_option('cursorline', true)
 
 vim.api.nvim_set_option('printoptions', 'portrait:n')
-vim.api.nvim_set_option('ts', 4)
-vim.api.nvim_set_option('sw', 4)
+vim.api.nvim_set_option('tabstop', 4)
+vim.api.nvim_set_option('shiftwidth', 4)
 vim.api.nvim_set_option('expandtab', true)
 vim.api.nvim_set_option('colorcolumn', '96')
 vim.api.nvim_set_option('encoding', 'utf-8')
@@ -21,6 +21,14 @@ function Packin()
   PackerUpdate
   PackerCompile
 endfunction
+
+nnoremap <Space>p :NvimTreeToggle<CR>
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 0,
+    \ 'files': 0,
+    \ 'folder_arrows': 0,
+    \ }
 
 nnoremap zi :set fdm=syntax<CR>
 nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
@@ -50,11 +58,13 @@ autocmd FileType tex inoremap <silent> _max _{\mathrm{max}}<Esc>a
 autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 
 autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua set tabstop=2|set shiftwidth=2|set expandtab
-autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+autocmd FileType make set tabstop=4|set shiftwidth=4
+autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=htmldjango
 
 colorscheme base16-tomorrow-night
 ]]
 
+require'nvim-tree'.setup{}
 require'orgmode'.setup_ts_grammar()
 
 require'nvim-treesitter.configs'.setup {
@@ -115,5 +125,6 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                      .protocol
                                                                      .make_client_capabilities())
+
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {capabilities = capabilities}
