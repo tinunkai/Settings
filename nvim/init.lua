@@ -31,7 +31,6 @@ let g:nvim_tree_show_icons = {
     \ }
 
 nnoremap zi :set fdm=syntax<CR>
-nnoremap <C-t> :wa<CR>:sp<CR><C-W>j:terminal<CR>i
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
 nnoremap <C-j> :tabn<CR>
 nnoremap <C-k> :tabp<CR>
@@ -60,6 +59,7 @@ autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType make set tabstop=4|set shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=htmldjango
+autocmd BufNewFile,BufRead *.js set ft=javascriptreact
 
 colorscheme base16-tomorrow-night
 ]]
@@ -95,7 +95,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({select = true}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({select = false}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
     {name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'orgmode'}, {name = 'path'}
