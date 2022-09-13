@@ -82,7 +82,7 @@ URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
-URxvt.urlLauncher: chromium
+URxvt.urlLauncher: google-chrome-stable
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
 URxvt.keysym.Control-Shift-V: eval:paste_clipboard
