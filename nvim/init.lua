@@ -23,13 +23,6 @@ function Packin()
 endfunction
 
 nnoremap <Space>p :NvimTreeToggle<CR>
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
-    \ 'folder_arrows': 0,
-    \ }
-
 nnoremap zi :set fdm=syntax<CR>
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
 nnoremap <C-j> :tabn<CR>
@@ -56,7 +49,7 @@ autocmd FileType tex inoremap <silent> \mr \mathrm{<Esc>a
 autocmd FileType tex inoremap <silent> _max _{\mathrm{max}}<Esc>a
 autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 
-autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua,karel set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType make set tabstop=4|set shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=htmldjango
 autocmd BufNewFile,BufRead *.js set ft=javascriptreact
@@ -64,7 +57,19 @@ autocmd BufNewFile,BufRead *.js set ft=javascriptreact
 colorscheme base16-tomorrow-night
 ]]
 
-require'nvim-tree'.setup{}
+require'nvim-tree'.setup {
+  renderer = {
+    icons = {
+      show = {
+        git = true,
+        folder = false,
+        file = false,
+        folder_arrow = false,
+      }
+    }
+  }
+}
+
 require'orgmode'.setup_ts_grammar()
 
 require'nvim-treesitter.configs'.setup {
@@ -74,7 +79,6 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = {'org'}
   },
   ensure_installed = {'org'},
-  ensure_installed = {'python'},
   ensure_installed = {'rust'},
   ensure_installed = {'lua'}
 }
