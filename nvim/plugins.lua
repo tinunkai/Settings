@@ -1,18 +1,31 @@
 vim.cmd 'packadd packer.nvim'
 
 return require('packer').startup(function()
+  use 'onerobotics/vim-karel'
   use {'wbthomason/packer.nvim', opt = true}
   use 'chriskempson/base16-vim'
   use 'itchyny/lightline.vim'
   use 'racer-rust/vim-racer'
   use 'nvim-treesitter/nvim-treesitter'
-
   use 'neovim/nvim-lspconfig'
+  use 'kyazdani42/nvim-web-devicons'
+
+  use {
+    "startup-nvim/startup.nvim",
+    requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+  }
+
   use 'tweekmonster/django-plus.vim'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons',
+    }
+  }
+  use {
+    'mxw/vim-jsx',
+    requires = {
+      'pangloss/vim-javascript'
     }
   }
   use 'hrsh7th/cmp-nvim-lsp'
