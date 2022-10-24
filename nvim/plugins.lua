@@ -11,7 +11,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
 
   use {
-    "startup-nvim/startup.nvim",
+    "tinunkai/startup.nvim",
     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
   }
 
