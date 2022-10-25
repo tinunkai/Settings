@@ -1,9 +1,0 @@
-# -*- muttrc -*-
-#
-# List of folders that are considered to be "mailboxes" (folders that
-# receive incoming mail).
-#
-# $Id: mailboxes 17 2007-03-11 04:17:12Z vdanen $
-
-#mailboxes ! 
-mailboxes = +/Inbox

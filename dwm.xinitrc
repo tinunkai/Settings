@@ -1,4 +1,7 @@
-xrandr --output HDMI1 --rotate left --left-of VGA1
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+xrandr --output DP-2 --rotate left
 setxkbmap us
 xrdb .Xresources
 lightscreen - &
