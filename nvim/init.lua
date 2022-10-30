@@ -14,7 +14,7 @@ vim.api.nvim_set_option('colorcolumn', '96')
 vim.api.nvim_set_option('encoding', 'utf-8')
 vim.api.nvim_set_option('fileencodings', 'utf-8,iso-2022-jp,euc-jp,sjis')
 vim.api.nvim_set_option('fileformats', 'unix,dos,mac')
-vim.api.nvim_set_var('mapleader', 'm')
+vim.api.nvim_set_var('mapleader', ' ')
 
 vim.cmd [[
 autocmd BufWritePost plugins.lua,.plugins.lua call Packin()
@@ -24,7 +24,9 @@ function Packin()
   PackerCompile
 endfunction
 
-nnoremap <Space>p :NvimTreeToggle<CR>
+nnoremap <Leader>w <cmd>Telescope live_grep<cr>
+nnoremap <Leader>p <cmd>Telescope find_files<cr>
+nnoremap <Leader>t :NvimTreeToggle<CR>
 nnoremap zi :set fdm=syntax<CR>
 nnoremap zp :set fdm=indent<CR>
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>

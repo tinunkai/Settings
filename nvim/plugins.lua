@@ -8,7 +8,7 @@ return require('packer').startup(function()
   use 'racer-rust/vim-racer'
   use 'nvim-treesitter/nvim-treesitter'
   use 'neovim/nvim-lspconfig'
-  use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-tree/nvim-web-devicons'
 
   use {
     "tinunkai/startup.nvim",
