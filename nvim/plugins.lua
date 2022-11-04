@@ -3,12 +3,12 @@ vim.cmd 'packadd packer.nvim'
 return require('packer').startup(function()
   use 'onerobotics/vim-karel'
   use {'wbthomason/packer.nvim', opt = true}
-  use 'chriskempson/base16-vim'
-  use 'itchyny/lightline.vim'
+  use 'RRethy/nvim-base16'
+  use 'nvim-lualine/lualine.nvim'
   use 'racer-rust/vim-racer'
   use 'nvim-treesitter/nvim-treesitter'
   use 'neovim/nvim-lspconfig'
-  use 'nvim-tree/nvim-web-devicons'
+  use 'kyazdani42/nvim-web-devicons'
 
   use {
     "tinunkai/startup.nvim",

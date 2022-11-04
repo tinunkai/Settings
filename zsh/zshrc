@@ -23,13 +23,12 @@ zplug load
 # Customize
 
 alias info='info --vi-keys'
-alias vi=vim
-alias vim='nvim'
+alias vi=nvim
 alias vimdiff='nvim -d'
 alias em='emacs -nw'
 alias tig='tig --all'
 alias bc='bc -l'
-alias def='ydcv'
+alias def='myougiden'
 alias coin='coinmon -c jpy'
 alias open='xdg-open'
 alias dstat='dstat -am'
@@ -38,11 +37,11 @@ alias iv=vi
 alias say=espeak
 alias matrix='cmatrix -ab -u 3'
 alias vm='vmstat -t -S M 1'
+alias luaf='lua-format --indent-width=2 -i'
 
 export KEYTIMEOUT=1
 export EDITOR='nvim'
 export VISUAL='nvim'
-export BROWSER="ccopy"
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^K' kill-whole-line
@@ -59,4 +58,11 @@ wttr()
     curl --compressed "$request"
 }
 
-PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
+
+export PATH="/home/tinunkai/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+source $HOME/.cargo/env
+
+eval "$(oh-my-posh init zsh --config ./unicorn.omp.json)"

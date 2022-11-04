@@ -63,6 +63,7 @@ autocmd BufNewFile,BufRead *.js set ft=javascriptreact
 colorscheme base16-tomorrow-night
 ]]
 
+require('lualine').setup()
 require'startup'.setup {
   theme = 'evil'
 }
