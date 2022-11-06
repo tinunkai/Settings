@@ -15,3 +15,4 @@ git clone https://github.com/zplug/zplug $HOME/.zplug
 
 cp zsh/zshrc $HOME/.zshrc
 cp zsh/zpreztorc $HOME/.zpreztorc
+cp zsh/unicorn.omp.json $HOME/.config
