@@ -63,6 +63,5 @@ PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
 export PATH="/home/tinunkai/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-source $HOME/.cargo/env
 
 eval "$(oh-my-posh init zsh --config ~/.config/unicorn.omp.json)"
