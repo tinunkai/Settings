@@ -42,6 +42,7 @@ alias luaf='lua-format --indent-width=2 -i'
 export KEYTIMEOUT=1
 export EDITOR='nvim'
 export VISUAL='nvim'
+export TERM='xterm-256color'
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^K' kill-whole-line
@@ -64,4 +65,4 @@ export PATH="/home/tinunkai/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-eval "$(oh-my-posh init zsh --config ~/.config/unicorn.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/main.omp.json)"
