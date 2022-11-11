@@ -5,25 +5,31 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#003543",
+          "background": "#c73543",
           "foreground": "#fff",
-          "powerline_symbol": "\ue0c0 ",
           "properties": {
             "windows": "\ue62a "
           },
-          "style": "powerline",
-          "template": "{{.Icon}}  {{ if .WSL }}\ue70f {{ end }}",
+          "style": "diamond",
+          "template": " {{.Icon}} {{ if .WSL }}\ue70f {{ end }}",
           "type": "os"
+        },
+        {
+          "type": "session",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#c73543",
+          "template": "{{ if .SSHSession }}\uf673 {{ .HostName }} {{ end }}"
         },
         {
           "background": "#0087D8",
           "foreground": "#003544",
-          "powerline_symbol": "\ue0c0 ",
           "properties": {
             "folder_separator_icon": "/",
             "style": "full"
           },
           "style": "powerline",
+          "powerline_symbol": "\ue0c0 ",
           "template": " \ue5ff {{ .Path }} ",
           "type": "path"
         },
