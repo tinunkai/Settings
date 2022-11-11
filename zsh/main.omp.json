@@ -7,6 +7,7 @@
         {
           "background": "#c73543",
           "foreground": "#fff",
+          "leading_diamond": "\ue0ca ",
           "properties": {
             "windows": "\ue62a "
           },
@@ -30,7 +31,7 @@
           },
           "style": "powerline",
           "powerline_symbol": "\ue0c0 ",
-          "template": " \ue5ff {{ .Path }} ",
+          "template": " {{ .Path }} ",
           "type": "path"
         },
         {
@@ -57,7 +58,7 @@
           "foreground": "#fff",
           "powerline_symbol": "\ue0c0 ",
           "style": "powerline",
-          "template": "<#fff> \uf64f </>{{ .CurrentDate | date .Format }} ",
+          "template": " {{ .CurrentDate | date .Format }} ",
           "type": "time"
         },
         {
@@ -67,7 +68,7 @@
             "always_enabled": true
           },
           "style": "diamond",
-          "template": " \ufbab {{ .FormattedMs }}\u2800",
+          "template": " {{ .FormattedMs }} ",
           "trailing_diamond": "\ue0c0 ",
           "type": "executiontime"
         }
