@@ -59,10 +59,6 @@ wttr()
     curl --compressed "$request"
 }
 
-PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
-
-export PATH="/home/tinunkai/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
 
 eval "$(oh-my-posh init zsh --config ~/.config/main.omp.json)"
