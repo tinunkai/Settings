@@ -213,7 +213,7 @@ tmux_conf_theme_window_status_last_attr="none"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" ❐#S | #{username}#{root} | #{hostname}"
+tmux_conf_theme_status_left=" ❐ #S | #{username}#{root} | #{hostname} "
 tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_percentage, #{battery_percentage},} | %R | %m/%d "
 
 # status left style
