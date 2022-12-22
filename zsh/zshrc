@@ -59,6 +59,8 @@ wttr()
     curl --compressed "$request"
 }
 
-export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
 
+eval "$(pyenv init -)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh init zsh --config ~/.config/main.omp.json)"
