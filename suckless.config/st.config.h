@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack:size=12:antialias=true:autohint=true";
+static char *font = "HackGen35 Console NFJ:size=14:antialias=true:autohint=true";
 static int borderpx = 1;
 
 /*
