@@ -17,12 +17,6 @@ return require('packer').startup(function()
 
   use 'tweekmonster/django-plus.vim'
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    }
-  }
-  use {
     'mxw/vim-jsx',
     requires = {
       'pangloss/vim-javascript'

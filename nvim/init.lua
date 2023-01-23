@@ -26,7 +26,6 @@ endfunction
 
 nnoremap <Leader>w <cmd>Telescope live_grep<cr>
 nnoremap <Leader>p <cmd>Telescope find_files<cr>
-nnoremap <Leader>t :NvimTreeToggle<CR>
 nnoremap zi :set fdm=syntax<CR>
 nnoremap zp :set fdm=indent<CR>
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
