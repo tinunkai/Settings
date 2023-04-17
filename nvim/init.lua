@@ -6,7 +6,6 @@ vim.api.nvim_set_option('termguicolors', true)
 vim.api.nvim_set_option('cursorcolumn', true)
 vim.api.nvim_set_option('cursorline', true)
 
-vim.api.nvim_set_option('printoptions', 'portrait:n')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 vim.api.nvim_set_option('expandtab', true)
@@ -65,19 +64,6 @@ colorscheme base16-tomorrow-night
 require('lualine').setup()
 require'startup'.setup {
   theme = 'evil'
-}
-
-require'nvim-tree'.setup {
-  renderer = {
-    icons = {
-      show = {
-        git = true,
-        folder = false,
-        file = false,
-        folder_arrow = false,
-      }
-    }
-  }
 }
 
 require'orgmode'.setup_ts_grammar()
