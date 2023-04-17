@@ -25,7 +25,7 @@
           "properties": {
             "folder_icon": "\uf6d7",
             "folder_separator_icon": "<transparent> </>",
-            "home_icon": "\uf7db ",
+            "home_icon": "\uf7db",
             "style": "agnoster_short"
           },
           "style": "diamond",
