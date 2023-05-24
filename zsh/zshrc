@@ -5,6 +5,7 @@ zplug "esc/conda-zsh-completion"
 zplug "peterhurford/up.zsh"
 zplug "lukechilds/zsh-nvm"
 zplug "wbingli/zsh-wakatime"
+zplug "jeffreytse/zsh-vi-mode"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -30,6 +31,7 @@ alias def='myougiden'
 alias coin='coinmon -c jpy'
 alias open='xdg-open'
 alias dstat='dstat -am'
+alias ls='ls --color'
 alias sl=ls
 alias iv=vi
 alias say=espeak
@@ -38,8 +40,8 @@ alias vm='vmstat -t -S M 1'
 alias luaf='lua-format --indent-width=2 -i'
 
 export KEYTIMEOUT=1
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='vi'
+export VISUAL='vi'
 export TERM='xterm-256color'
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^U' backward-kill-line
