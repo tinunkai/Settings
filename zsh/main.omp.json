@@ -23,7 +23,7 @@
           "foreground": "#ffffff",
           "leading_diamond": "<transparent,#01579B>\ue0b0</>",
           "properties": {
-            "folder_icon": "\uf6d7",
+            "folder_icon": "...",
             "folder_separator_icon": "<transparent> </>",
             "style": "agnoster_short"
           },
