@@ -1,5 +1,8 @@
-# zlug
 source $HOME/.zplug/init.zsh
+
+function zvm_config() {
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+}
 
 zplug "esc/conda-zsh-completion"
 zplug "peterhurford/up.zsh"
@@ -27,7 +30,7 @@ alias vimdiff='nvim -d'
 alias em='emacs -nw'
 alias tig='tig --all'
 alias bc='bc -l'
-alias def='myougiden'
+alias def='ydcv'
 alias coin='coinmon -c jpy'
 alias open='xdg-open'
 alias dstat='dstat -am'
@@ -52,15 +55,16 @@ bindkey -M emacs '^V' edit-command-line
 
 wttr()
 {
-    # change Paris to your default location
     local request="wttr.in/${1-kashiwara}"
     request+='?qAF&lang=zh'
     [ "$COLUMNS" -lt 125 ] && request+='&n'
     curl --compressed "$request"
 }
 
+export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib
 export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
 
 eval "$(pyenv init -)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh init zsh --config ~/.config/main.omp.json)"
+source $HOME/.cargo/env
