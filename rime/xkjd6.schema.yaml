@@ -12,7 +12,7 @@ schema:
 layout:
   topup:
     topup_this: "bcdefghjklmnpqrstwxyz"
-    topup_with: "avuio;"
+    topup_with: "avuio;:"
 
   algebra:
     - derive/^[bcdefghjklmnpqrstwxyz;]([bcdefghjklmnpqrstwxyz;][avuio].*)$/`$1/
@@ -36,10 +36,10 @@ switches:
     states: [ 简体, 繁體 ]
   - name: sbb_hint
     reset: 1 # 改成0默认关闭
-    states: [ "关₆₃₀", "开₆₃₀" ]
+    states: [ "关630", "开630" ]
   - name: sbb_disable_full
     reset: 0 # 改成1默认关闭全码
-    states: [ "开₆₃₀全码", "关₆₃₀全码" ]
+    states: [ "开630全码", "关630全码" ]
   - name: EN2en
     reset: 1
   - name: topup_hint
@@ -143,9 +143,6 @@ engine:
   filters:
     - simplifier
     - uniquifier
-    - simplifier@emoji_cn
-    - simplifier@jffh
-    - simplifier@EN2en
     - reverse_lookup_filter@danzi_lookup
     - lua_filter@xkjd6_filter
 
@@ -153,8 +150,8 @@ speller:
   algebra:
     __include: "layout/algebra"
   auto_select: true
-  alphabet: "zyxwvutsrqponmlkjihgfedcba;`"
-  initials: "abcdefghijklmnopqrstuvwxyz;`"
+  alphabet: "zyxwvutsrqponmlkjihgfedcba;:`"
+  initials: "abcdefghijklmnopqrstuvwxyz;:`"
 
 translator:
   dictionary: xkjd6.extended
@@ -167,22 +164,9 @@ translator:
   max_phrase_length: 6
 
 repeat_history:
-  input: ;; #重复上次上屏内容
+  input: ;h #重复上次上屏内容
   size: 1
   initial_quality: 10000
-
-EN2en:
-  opencc_config: EN2en.json
-  option_name: EN2en
-
-emoji_cn:
-  opencc_config: emoji.json
-  option_name: emoji_cn
-  tips: all
-
-jffh:
-  opencc_config: s2tw.json
-  option_name: jffh
 
 danzi_lookup:
   dictionary: xkjd6.extended
@@ -204,9 +188,6 @@ custom_phrase:
   user_dict: user_dict
   db_class: stabledb
   enable_sentence: false
-
-punctuator:
-  import_preset: symbols
 
 key_binder:
   bindings:
