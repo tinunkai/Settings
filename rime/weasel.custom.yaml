@@ -1,23 +1,34 @@
 patch:
   style:
     font_face: "LXGW WenKai"
-    font_point: 16
+    font_point: 20
     color_scheme: base16
     inline_preedit: true
+    preedit_type: composition
+    label_format: ""
     layout:
-      round_corner: 10
+      corner_radius: 0
+      hilited_corner_radius: 0
+      shadow_radius: 0
       border_width: 0
       candidate_spacing: 0
+      margin_x: 7
+      margin_y: 7
+      shadow_offset_x: 0
+      round_corner: 0
+      shadow_offset_y: 0
+      hilite_padding: 6
+      spacing: 0
   preset_color_schemes:
     base16:
       name: base16
       author: tinunkai
-      back_color: 0x585858
+      back_color: 0xd8585858
       border_color: 0x585858
       text_color: 0x88caf7
       hilited_text_color: 0xd8d8d8
-      hilited_back_color: 0x383838
+      hilited_back_color: 0xd8383838
       hilited_candidate_text_color: 0x282828
-      hilited_candidate_back_color: 0xc2af7c
+      hilited_candidate_back_color: 0xd8c2af7c
       candidate_text_color: 0xd8d8d8
-      comment_text_color: 0xc2af7c
+      comment_text_color: 0x88caf7

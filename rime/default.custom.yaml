@@ -1,5 +1,7 @@
 patch:
   schema_list:
     - {schema: xkjd6}
+    - {schema: openfly}
+    - {schema: openfly_reverse}
   menu:
     page_size: 10
