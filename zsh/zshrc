@@ -42,6 +42,9 @@ alias matrix='cmatrix -ab -u 3'
 alias vm='vmstat -t -S M 1'
 alias luaf='lua-format --indent-width=2 -i'
 
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
 export KEYTIMEOUT=1
 export EDITOR='vi'
 export VISUAL='vi'
@@ -55,9 +58,9 @@ bindkey -M emacs '^V' edit-command-line
 
 wttr()
 {
-    local request="wttr.in/${1-kashiwara}"
-    request+='?qAF&lang=zh'
-    [ "$COLUMNS" -lt 125 ] && request+='&n'
+    local request="wttr.in/${1}"
+    # request+='?qAF&lang=zh'
+    # [ "$COLUMNS" -lt 125 ] && request+='&n'
     curl --compressed "$request"
 }
 

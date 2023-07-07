@@ -6,6 +6,7 @@ vim.api.nvim_set_option('termguicolors', true)
 vim.api.nvim_set_option('cursorcolumn', true)
 vim.api.nvim_set_option('cursorline', true)
 
+vim.api.nvim_set_option('mouse', '')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 vim.api.nvim_set_option('expandtab', true)
@@ -28,6 +29,7 @@ nnoremap <Leader>p <cmd>Telescope find_files<cr>
 nnoremap zi :set fdm=syntax<CR>
 nnoremap zp :set fdm=indent<CR>
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
+nnoremap <C-l> :e!<CR>
 nnoremap <C-j> :tabn<CR>
 nnoremap <C-k> :tabp<CR>
 inoremap <C-o> <Esc>
