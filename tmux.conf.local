@@ -232,8 +232,8 @@ tmux_conf_theme_synchronized_bg="none"
 tmux_conf_theme_synchronized_attr="none"
 
 # symbols used to indicate whether battery is charging or discharging
-tmux_conf_battery_status_charging=""
-tmux_conf_battery_status_discharging=""
+tmux_conf_battery_status_charging="󰂄"
+tmux_conf_battery_status_discharging="󰁹"
 
 # clock style (when you hit <prefix> + t)
 # you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
