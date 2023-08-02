@@ -21,6 +21,9 @@ fi
 zplug load
 
 # Customize
+autoload -U select-word-style
+select-word-style bash
+export WORDCHARS='.-'
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 setopt autocd
