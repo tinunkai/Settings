@@ -9,6 +9,7 @@ zplug "peterhurford/up.zsh"
 zplug "lukechilds/zsh-nvm"
 zplug "wbingli/zsh-wakatime"
 zplug "jeffreytse/zsh-vi-mode"
+zplug "marlonrichert/zsh-autocomplete"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -20,8 +21,8 @@ fi
 zplug load
 
 # Customize
-
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 setopt autocd
 
 alias info='info --vi-keys'
