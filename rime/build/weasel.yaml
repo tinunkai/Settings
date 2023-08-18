@@ -1,0 +1,44 @@
+__build_info:
+  rime_version: 1.8.5
+  timestamps:
+    weasel: 1686057548
+    weasel.custom: 1689147599
+app_options:
+  cmd.exe:
+    ascii_mode: true
+  conhost.exe:
+    ascii_mode: true
+config_version: 0.22
+preset_color_schemes:
+  base16:
+    author: tinunkai
+    back_color: 0xd8585858
+    border_color: 0x585858
+    candidate_text_color: 0xd8d8d8
+    comment_text_color: 0x88caf7
+    hilited_back_color: 0xd8383838
+    hilited_candidate_back_color: 0xd8c2af7c
+    hilited_candidate_text_color: 0x282828
+    hilited_text_color: 0xd8d8d8
+    name: base16
+    text_color: 0x88caf7
+style:
+  color_scheme: base16
+  font_face: "LXGW WenKai Screen R"
+  font_point: 20
+  inline_preedit: true
+  label_format: ""
+  layout:
+    border_width: 0
+    candidate_spacing: 0
+    corner_radius: 0
+    hilite_padding: 6
+    hilited_corner_radius: 0
+    margin_x: 7
+    margin_y: 7
+    round_corner: 0
+    shadow_offset_x: 0
+    shadow_offset_y: 0
+    shadow_radius: 0
+    spacing: 0
+  preedit_type: composition
