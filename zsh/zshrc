@@ -1,32 +1,12 @@
-source $HOME/.zplug/init.zsh
-
-function zvm_config() {
-    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-}
-
-zplug "esc/conda-zsh-completion"
-zplug "peterhurford/up.zsh"
-zplug "lukechilds/zsh-nvm"
-zplug "wbingli/zsh-wakatime"
-zplug "jeffreytse/zsh-vi-mode"
-zplug "marlonrichert/zsh-autocomplete"
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load
-
 # Customize
 autoload -U select-word-style
 select-word-style bash
 export WORDCHARS='.-'
-bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 setopt autocd
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+zstyle ':completion:*' menu select
+bindkey '^[[Z' reverse-menu-complete
 
 alias info='info --vi-keys'
 alias vi=nvim
@@ -68,8 +48,11 @@ wttr()
     curl --compressed "$request"
 }
 
-export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib
-export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/go/bin:$PATH
+# export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib # for wsl
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=$HOME/.pyenv/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 eval "$(pyenv init -)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
