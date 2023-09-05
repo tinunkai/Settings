@@ -1,7 +1,9 @@
 var:
-  last_build_time: 1692337451
+  last_build_time: 1692688742
+  option:
+    full_shape: false
   previously_selected_schema: xkjd6
   schema_access_time:
-    openfly: 1692335356
+    openfly: 1692338262
     openfly_reverse: 1692331051
-    xkjd6: 1692337369
+    xkjd6: 1692339015
