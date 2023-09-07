@@ -31,6 +31,7 @@ export EDITOR='vi'
 export VISUAL='vi'
 export TERM='xterm-256color'
 
+bindkey -v
 bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^U' backward-kill-line
 bindkey -M viins '^K' kill-whole-line
@@ -38,13 +39,12 @@ bindkey -M viins '^W' backward-delete-word
 bindkey -M vicmd '^V' edit-command-line
 bindkey -M emacs '^V' edit-command-line
 
-# export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib # for wsl
+export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib # for wsl
 export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 
-PROMPT="------------ %(?.%K{green}%F{black}%.%f%k.%K{red}%?%k)
-"
+PROMPT="%F{yellow}===%f %(?.%K{green}%F{black}%.%f%k.%K{red}%?%k) at %F{blue}%m%f %F{yellow}===%f "
 
 eval "$(pyenv init -)"
 source $HOME/.cargo/env
