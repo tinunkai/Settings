@@ -39,12 +39,12 @@ bindkey -M viins '^W' backward-delete-word
 bindkey -M vicmd '^V' edit-command-line
 bindkey -M emacs '^V' edit-command-line
 
-export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib # for wsl
+# export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib # for wsl
 export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 
-PROMPT="%F{yellow}===%f %(?.%K{green}%F{black}%.%f%k.%K{red}%?%k) at %F{blue}%m%f %F{yellow}===%f "
-
 eval "$(pyenv init -)"
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
+
+PROMPT="%F{yellow}===%f %(?.%K{green}%F{black}%.%f%k.%K{red}%?%k) at %F{blue}%m%f %F{yellow}===%f "
