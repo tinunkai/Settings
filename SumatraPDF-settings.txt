@@ -1,0 +1,124 @@
+﻿# For documentation, see https://www.sumatrapdfreader.org/settings/settings3-4-6.html
+FixedPageUI [
+	TextColor = #000000
+	BackgroundColor = #ffffff
+	SelectionColor = #f5fc0c
+	WindowMargin = 2 4 2 4
+	PageSpacing = 4 4
+	HideScrollbars = true
+]
+ComicBookUI [
+	WindowMargin = 0 0 0 0
+	PageSpacing = 4 4
+	CbxMangaMode = false
+]
+ChmUI [
+	UseFixedPageUI = false
+]
+
+SelectionHandlers [
+]
+ExternalViewers [
+]
+
+ZoomLevels = 8.33 12.5 18 25 33.33 50 66.67 75 100 125 150 200 300 400 600 800 1000 1200 1600 2000 2400 3200 4800 6400
+ZoomIncrement = 0
+
+PrinterDefaults [
+	PrintScale = shrink
+]
+ForwardSearch [
+	HighlightOffset = 0
+	HighlightWidth = 15
+	HighlightColor = #6581ff
+	HighlightPermanent = false
+]
+Annotations [
+	HighlightColor = #ffff00
+	UnderlineColor = #00ff00
+	TextIconColor = #ffff00
+	TextIconType = 
+	DefaultAuthor = 
+]
+
+RememberOpenedFiles = true
+RememberStatePerDocument = true
+RestoreSession = true
+UiLanguage = en
+EnableTeXEnhancements = false
+DefaultDisplayMode = automatic
+DefaultZoom = fit page
+Shortcuts [
+	[
+		Cmd = CmdToggleBookmarks
+		Key = Ctrl + b
+	]
+	[
+		Cmd = CmdZoomFitWidthAndContinuous
+		Key = s
+	]
+	[
+		Cmd = CmdZoomActualSize
+		Key = 0
+	]
+	[
+		Cmd = CmdZoomActualSize
+		Key = 0
+	]
+	[
+		Cmd = CmdScrollUpHalfPage
+		Key = Ctrl + u
+	]
+	[
+		Cmd = CmdScrollDownHalfPage
+		Key = Ctrl + d
+	]
+	[
+		Cmd = CmdGoToFirstPage
+		Key = g
+	]
+	[
+		Cmd = CmdGoToLastPage
+		Key = G
+	]
+	[
+		Cmd = CmdFacingView
+		Key = d
+	]
+	[
+		Cmd = CmdBookView
+		Key = Shift + d
+	]
+]
+EscToExit = false
+ReuseInstance = false
+ReloadModifiedDocuments = true
+
+MainWindowBackground = #80fff200
+FullPathInTitle = false
+ShowMenubar = false
+ShowToolbar = false
+ShowFavorites = false
+ShowToc = true
+TocDy = 0
+SidebarDx = 316
+ToolbarSize = 18
+TabWidth = 300
+TreeFontSize = 0
+SmoothScroll = true
+ShowStartPage = true
+CheckForUpdates = true
+WindowState = 1
+WindowPos = 953 30 974 1057
+UseTabs = true
+UseSysColors = false
+CustomScreenDPI = 0
+
+FileStates [
+]
+SessionData [
+]
+TimeOfLastUpdateCheck = 0 0
+OpenCountWeek = 662
+
+# Settings below are not recognized by the current version
