@@ -3,14 +3,10 @@ require 'plugins'
 -- vim.g.startup_disable_on_startup = true
 
 vim.api.nvim_set_option('termguicolors', true)
-vim.api.nvim_set_option('cursorcolumn', true)
-vim.api.nvim_set_option('cursorline', true)
 
-vim.api.nvim_set_option('mouse', '')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 vim.api.nvim_set_option('expandtab', true)
-vim.api.nvim_set_option('colorcolumn', '96')
 vim.api.nvim_set_option('encoding', 'utf-8')
 vim.api.nvim_set_option('fileencodings', 'utf-8,iso-2022-jp,euc-jp,sjis')
 vim.api.nvim_set_option('fileformats', 'unix,dos,mac')
@@ -24,12 +20,15 @@ function Packin()
   PackerCompile
 endfunction
 
+set colorcolumn=90
+set cursorline
+set cursorcolumn
+
 nnoremap <Leader>w <cmd>Telescope live_grep<cr>
 nnoremap <Leader>p <cmd>Telescope find_files<cr>
 nnoremap zi :set fdm=syntax<CR>
 nnoremap zp :set fdm=indent<CR>
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
-nnoremap <C-l> :e!<CR>
 nnoremap <C-j> :tabn<CR>
 nnoremap <C-k> :tabp<CR>
 inoremap <C-o> <Esc>
@@ -124,9 +123,8 @@ cmp.setup.cmdline(':', {
 })
 
 -- Setup lspconfig.
+-- require'lspconfig'.typst_lsp.setup{}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
                                                                      .protocol
                                                                      .make_client_capabilities())
-
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {capabilities = capabilities}
