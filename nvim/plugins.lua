@@ -1,6 +1,7 @@
 vim.cmd 'packadd packer.nvim'
 
 return require('packer').startup(function()
+  use 'SeniorMars/typst.nvim'
   use 'onerobotics/vim-karel'
   use {'wbthomason/packer.nvim', opt = true}
   use 'RRethy/nvim-base16'
@@ -9,6 +10,7 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use 'neovim/nvim-lspconfig'
   use 'kyazdani42/nvim-web-devicons'
+  use 'github/copilot.vim'
 
   use {
     "tinunkai/startup.nvim",
@@ -30,10 +32,4 @@ return require('packer').startup(function()
 
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
-
-  use {
-    -- 'nvim-orgmode/orgmode',
-    'tinunkai/orgmode',
-    config = function() require'orgmode'.setup {} end
-  }
 end)

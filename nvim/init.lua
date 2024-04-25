@@ -23,9 +23,16 @@ endfunction
 set colorcolumn=90
 set cursorline
 set cursorcolumn
+set mouse=
 
 nnoremap <Leader>w <cmd>Telescope live_grep<cr>
 nnoremap <Leader>p <cmd>Telescope find_files<cr>
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 nnoremap zi :set fdm=syntax<CR>
 nnoremap zp :set fdm=indent<CR>
 nnoremap <C-c> :wa<CR>:sp<CR><C-W>j:terminal<CR>i make<CR>
@@ -53,7 +60,7 @@ autocmd FileType tex inoremap <silent> \mr \mathrm{<Esc>a
 autocmd FileType tex inoremap <silent> _max _{\mathrm{max}}<Esc>a
 autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 
-autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,org,tex,lua,karel set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType c,cpp,vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,tex,lua,karel set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType go set tabstop=4|set shiftwidth=4
 autocmd FileType make set tabstop=4|set shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=htmldjango
@@ -67,20 +74,13 @@ require'startup'.setup {
   theme = 'evil'
 }
 
-require'orgmode'.setup_ts_grammar()
-
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
-    disable = {'org'},
-    additional_vim_regex_highlighting = {'org'}
   },
-  ensure_installed = {'org'},
   ensure_installed = {'rust'},
   ensure_installed = {'lua'}
 }
-
-require'orgmode'.setup({mappings = {org = {org_toggle_checkbox = '<Leader>c'}}})
 
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
@@ -99,7 +99,7 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({select = false}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
-    {name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'orgmode'}, {name = 'path'}
+    {name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'path'}
   }, {{name = 'buffer'}})
 })
 
