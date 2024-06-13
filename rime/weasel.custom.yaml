@@ -1,6 +1,6 @@
 patch:
   style:
-    font_face: "LXGW WenKai Screen R"
+    font_face: "LXGW WenKai Screen"
     font_point: 20
     color_scheme: base16
     inline_preedit: true
