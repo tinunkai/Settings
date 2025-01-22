@@ -20,13 +20,14 @@ function Packin()
   PackerCompile
 endfunction
 
-set colorcolumn=90
+set colorcolumn=119
 set cursorline
 set cursorcolumn
 set mouse=
 
 nnoremap <Leader>w <cmd>Telescope live_grep<cr>
 nnoremap <Leader>p <cmd>Telescope find_files<cr>
+nnoremap <Leader>e <cmd>Telescope diagnostics<cr>
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -60,7 +61,8 @@ autocmd FileType tex inoremap <silent> \mr \mathrm{<Esc>a
 autocmd FileType tex inoremap <silent> _max _{\mathrm{max}}<Esc>a
 autocmd FileType tex inoremap <silent> _min _{\mathrm{min}}<Esc>a
 
-autocmd FileType c,cpp,vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,tex,lua,karel set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType vimscript,javascript,javascriptreact,json,jinja,css,html,htmldjango,typescript,markdown,tex,lua,karel set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType c,cpp,cuda,python,dosbatch set tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType go set tabstop=4|set shiftwidth=4
 autocmd FileType make set tabstop=4|set shiftwidth=4
 autocmd BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=htmldjango
@@ -124,6 +126,19 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 -- require'lspconfig'.typst_lsp.setup{}
+local lspconfig = require('lspconfig')
+-- lspconfig.clangd.setup({
+--   name='clangd',
+--   cmd={'clangd-18', '--background-index', '--clang-tidy', '--log=verbose'},
+--   initialization_options = {
+--     fallback_flags = {'-std=c++17'},
+--   },
+--   root_dir = lspconfig.util.root_pattern("compile_command.json", ".git"),
+--   settings = {
+--     compilationDatabasePath = ".",
+--   }
+-- })
+lspconfig.ruff.setup{};
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
                                                                      .protocol
