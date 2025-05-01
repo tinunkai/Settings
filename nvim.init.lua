@@ -10,6 +10,17 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy.nvim setup
 require("lazy").setup({
+  {
+    'nvim-orgmode/orgmode',
+    event = {'BufReadPre', 'BufNewFile'},
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_agenda_files = '~/orgfiles/**/*',
+        org_default_notes_file = '~/orgfiles/refile.org',
+      })
+    end,
+  },
   { "RRethy/nvim-base16" },
   {
     "nvim-lualine/lualine.nvim",
@@ -23,7 +34,7 @@ require("lazy").setup({
     config = function()
       require("nvim-treesitter.configs").setup {
         highlight = { enable = true },
-        ensure_installed = { "lua", "rust" },
+        ignore_install ={ "org" },
       }
     end,
   },
