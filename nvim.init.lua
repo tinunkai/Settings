@@ -82,13 +82,12 @@ require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities(
         vim.lsp.protocol.make_client_capabilities()
-      )
-      lspconfig.ruff.setup {
-        capabilities = capabilities,
-      }
+    )
+    vim.lsp.config('ruff', {
+      capabilities = capabilities,
+    })
     end
   },
   -- { "github/copilot.vim" },
