@@ -108,13 +108,24 @@ require("lazy").setup({
   { "wakatime/vim-wakatime" },
 })
 
+-- nvim-treesitter
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"c", "cpp", "cuda", "python", "rust", "lua"},
+  callback = function()
+    vim.treesitter.start()
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldlevel = 99
+  end,
+})
+
 -- General Settings
 vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.encoding = "utf-8"
-vim.opt.fileencodings = { "utf-8", "iso-2022-jp", "euc-jp", "sjis" }
+vim.opt.fileencodings = { "utf-8", "cp932", "euc-jp", "sjis" }
 vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.g.mapleader = " "
 
