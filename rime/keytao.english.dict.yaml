@@ -1,0 +1,143 @@
+# Rime dictionary
+# encoding: utf-8
+---
+name: keytao.english
+version: "2026.02.26"
+sort: by_weight
+columns:
+  - text
+  - code
+  - weight
+...
+
+BiangBiang面	bbmmu	100
+BGM	bgm	100
+B超	bjz	100
+B站	bqf	100
+Backspace	bscei	100
+B超	bwz	100
+CDMA	cdm	100
+c++	cjj	100
+CRM	crm	100
+Caps Lock	cspk	100
+Ctrl	ctrl	100
+蹭WiFi	cwko	100
+C位	cww	100
+C语言	cyy	100
+对A	dbs	100
+Delete	delei	100
+登录QQ	dlqqa	100
+哆啦A梦	dlsm	100
+DNA	dns	100
+D盘	dpf	100
+emmmmmmm	emmmm	100
+ennnn	ennn	100
+Enter	enter	100
+Esc	esc	100
+Excel	excl	100
+for	flr	100
+Foxmail	flxlv	100
+智能ABC	fnsc	100
+GDP	gdp	100
+GIF	gkf	100
+Git	gkt	100
+GitHub	gktb	100
+Gitee	gkte	100
+Good	glld	100
+Google	gllgle	100
+U盾	jdw	100
+U盘	jpfu	100
+USB	jsb	100
+ICU	kcj	100
+IC卡	kck	100
+卡乐B	klb	100
+卡拉OK	kllk	100
+iOS	kls	100
+IMEI	kmek	100
+iMac	kms	100
+iMac Pro	kmsp	100
+IP	kp	100
+IP地址	kpdf	100
+IP电话	kpdh	100
+iPhone	kph	100
+iPhone 8	kphb	100
+iPhone 7	kphq	100
+iPhone 8 Plus	kphs	100
+iPhone X	kphx	100
+KPI	kpk	100
+IP卡	kpki	100
+iPad	kps	100
+iPad	kpsd	100
+iPad Pro	kpsp	100
+IPTV	kptv	100
+K线图	kxt	100
+Office	lffeo	100
+Office 2016	lffl	100
+Office 2013	lffso	100
+OFO	lfl	100
+OFO小黄车	lfljo	100
+OFO小黄车	lflw	100
+Linux	lknx	100
+VIP	lkp	100
+VoLTE	lllte	100
+VPN	lpn	100
+MBA	mbsi	100
+MIUI	mkjk	100
+Mac	msc	100
+NBA	nbs	100
+New	new	100
+Note	nlte	100
+NASA	nsss	100
+PC端	pcd	100
+PC机	pcjku	100
+Perfect	pert	100
+Photoshop	phlp	100
+Plus	pljs	100
+PowerPoint	plkt	100
+PowerPoint	plwt	100
+PPT	ppt	100
+PY交易	pyjy	100
+QQ	qq	100
+QQ号	qqh	100
+QQ拼音	qqpy	100
+QQ群	qqqw	100
+QQ音乐	qqyy	100
+奇瑞QQ	qrqqv	100
+Rime	rkme	100
+root	rllt	100
+ABC	sbc	100
+Access	sccs	100
+AcFun	scfn	100
+A股	sgj	100
+Shift	shkt	100
+SIM卡	skm	100
+SO嘎	slgs	100
+SOHO公寓	slhy	100
+Alt	slt	100
+Android	sndd	100
+APK	spk	100
+App	spp	100
+A站	sqf	100
+AA制	ssf	100
+AA制	ssfk	100
+ATM	stm	100
+THX	thx	100
+TIM	tkm	100
+TapTap	tspt	100
+T恤	txlv	100
+T型台	txtv	100
+Welcome	wjlja	100
+WiFi	wkfk	100
+Wiki	wkkk	100
+Win	wkn	100
+Win 8	wknb	100
+Windows 8	wknba	100
+Win 10	wkne	100
+Windows 10	wknea	100
+Win 7	wknq	100
+Windows 7	wknqa	100
+Windows	wkns	100
+Word	wlrd	100
+WPS	wps	100
+X光	xgx	100
+X战警	xqju	100
