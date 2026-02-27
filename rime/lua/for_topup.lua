@@ -75,6 +75,10 @@ local function processor(key_event, env)
         first = key
     end
 
+    if first == ":" then
+        return 2
+    end
+
     local is_alphabet = env.alphabet[key] or false
     local is_topup = env.topup_set[key] or false
     local is_prev_topup = env.topup_set[prev] or false
