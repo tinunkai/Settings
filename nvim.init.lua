@@ -79,10 +79,34 @@ require("lazy").setup({
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities(
         vim.lsp.protocol.make_client_capabilities()
-    )
-    vim.lsp.config('ruff', {
-      capabilities = capabilities,
-    })
+      )
+
+      vim.lsp.config('ruff', {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config('clangd', {
+        capabilities = capabilities,
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=detailed",
+          "--header-insertion=iwyu",
+        },
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+        root_markers = {
+          ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          ".git",
+        },
+      })
+
+      vim.lsp.enable('ruff')
+      vim.lsp.enable('clangd')
     end
   },
   -- { "github/copilot.vim" },
@@ -128,6 +152,23 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencodings = { "utf-8", "cp932", "euc-jp", "sjis" }
 vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.g.mapleader = " "
+
+vim.diagnostic.enable(false)
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf }
+
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>E", function()
+      vim.diagnostic.open_float(nil, { scope = "line", border = "rounded", source = "if_many" })
+    end, opts)
+  end,
+})
 
 -- Appearance
 vim.cmd [[
