@@ -1,4 +1,5 @@
-#!/bin/bash
-set -x
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-cp ./toprc $HOME/.toprc
+readonly REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec "$REPO_ROOT/reset.sh" top "$@"

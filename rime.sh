@@ -1,5 +1,5 @@
-#!/bin/bash
-set -x
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-cp -r ./rime $HOME/.local/share/fcitx5
-cd $HOME/.local/share/fcitx5/rime && make
+readonly REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec "$REPO_ROOT/reset.sh" rime "$@"

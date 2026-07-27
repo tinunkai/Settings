@@ -1,7 +1,5 @@
-#!/usr/bin/env zsh
-set -x
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-rm -rf $HOME/.zprezto $HOME/.zlogin $HOME/.zlogout $HOME/.zpreztorc $HOME/.zprofile $HOME/.zshenv $HOME/.zshrc $HOME/.zplug
-mkdir -p $HOME/.config
-
-cp zshrc $HOME/.zshrc
+readonly REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec "$REPO_ROOT/reset.sh" zsh "$@"

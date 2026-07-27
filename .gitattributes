@@ -1,0 +1,8 @@
+* text=auto
+
+*.sh text eol=lf
+*.lua text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.org text eol=lf
+*.ocd2 binary

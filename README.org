@@ -1,2 +1,87 @@
 * Settings
-dot files
+
+Personal Linux terminal and desktop environment configuration. Configuration
+files are organized under =config/=, and =./reset.sh= is the installation
+entrypoint.
+
+** Quick Start
+
+Preview the default installation:
+
+#+begin_src sh
+./reset.sh --dry-run
+#+end_src
+
+Install the default core configuration (top, zsh, Neovim, and tmux):
+
+#+begin_src sh
+./reset.sh
+#+end_src
+
+You can also install selected targets:
+
+#+begin_src sh
+./reset.sh nvim tmux
+./reset.sh mycli imv
+./reset.sh dwm
+./reset.sh rime
+#+end_src
+
+See all available options and targets:
+
+#+begin_src sh
+./reset.sh --help
+#+end_src
+
+** Installation Behavior
+
+- Scripts can be invoked from any working directory.
+- Files whose contents and permissions are unchanged are skipped, making
+  repeated runs safe.
+- Before replacing an existing file, the installer moves it to
+  =~/.local/state/settings-backups/<timestamp>/=.
+- Rime uses a merge installation: additional existing files are preserved, and
+  the entire destination directory is backed up before any changes.
+- =core= and =all= include only top, zsh, Neovim, and tmux. They do not install
+  desktop configuration, Rime, or system packages.
+
+Use =--backup-dir DIR= to choose a backup directory for the current run.
+
+** Repository Layout
+
+#+begin_example
+.
+├── config/               # Configuration files grouped by application
+│   ├── nvim/
+│   ├── rime/
+│   ├── tmux/
+│   ├── x11/
+│   └── ...
+├── scripts/lib/          # Shared installer functions
+├── tests/                # Regression tests using a temporary HOME
+├── reset.sh              # Main entrypoint
+└── {top,zsh,nvim,...}.sh # Compatibility entrypoints for existing usage
+#+end_example
+
+The following components are not installed by default:
+
+- =ubuntu.sh=: installs system packages with apt and snap; requires sudo.
+- =doom.sh=: installs Doom Emacs; it runs only when =config/doom/= exists.
+- =config/suckless/=: source configuration and patches for dwm, st, and
+  slstatus; apply these manually.
+- =config/windows/=: Windows application configuration; copy it manually.
+
+** Compatibility Entrypoints
+
+=top.sh=, =zsh.sh=, =nvim.sh=, =tmux.sh=, and =rime.sh= remain available
+and forward their arguments to =reset.sh=. For example:
+
+#+begin_src sh
+./nvim.sh --dry-run
+#+end_src
+
+** Verification
+
+#+begin_src sh
+./tests/reset_test.sh
+#+end_src

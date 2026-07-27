@@ -1,7 +1,5 @@
-#!/bin/bash
-set -x
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-rm -rf $HOME/.tmux
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-cp ./tmux.conf $HOME/.tmux.conf
-cp ./tmux.conf.local $HOME/.tmux.conf.local
+readonly REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec "$REPO_ROOT/reset.sh" tmux "$@"

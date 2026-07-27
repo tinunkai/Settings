@@ -1,12 +1,5 @@
-#!/bin/bash
-set -x
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-rm -rf $HOME/.local/share/nvim
-rm -rf $HOME/.config/nvim
-rm -rf $HOME/.init.vim
-rm -rf $HOME/.init.lua
-rm -rf $HOME/.plugins.lua
-mkdir -p $HOME/.config/nvim
-
-cp nvim.init.lua $HOME/.config/nvim/init.lua
-ln -s $HOME/.config/nvim/init.lua $HOME/.init.lua
+readonly REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec "$REPO_ROOT/reset.sh" nvim "$@"
