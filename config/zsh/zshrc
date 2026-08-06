@@ -13,11 +13,11 @@ alias info='info --vi-keys'
 alias vi=nvim
 alias vimdiff='nvim -d'
 alias em='emacs -nw'
-alias tig='tig --all'
+# alias tig='tig --all'
 alias bc='bc -l'
 alias open='xdg-open'
-alias dstat='dool -a'
-alias ls='ls --color'
+alias dstat='dool -am'
+alias lc='ls --color'
 alias say=espeak
 alias matrix='cmatrix -ab -u 3'
 alias vm='vmstat -t -S M 1'
@@ -39,12 +39,6 @@ bindkey -M viins '^W' backward-delete-word
 bindkey -M vicmd '^V' edit-command-line
 bindkey -M emacs '^V' edit-command-line
 
-#export PATH=/home/tinunkai/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib # for wsl
-export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
 
-eval "$(pyenv init -)"
-source $HOME/.cargo/env
-
-PROMPT="%F{yellow}===%f %(?..%K{red}%?%k)%K{green}%F{black}%.%f%k at %F{blue}%m%f %F{yellow}===%f "
+PROMPT="%F{yellow}%3~%f @ %F{blue}%m%f %(?.%F{green}%%%f.%K{red}%?%k) "
