@@ -35,7 +35,7 @@ require("lazy").setup({
     end,
   },
 
-  { "RRethy/nvim-base16" },
+  { "wincent/base16-nvim" },
 
   {
     "nvim-lualine/lualine.nvim",
@@ -254,7 +254,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Appearance
 vim.api.nvim_cmd({
   cmd = "colorscheme",
-  args = { "base16-tomorrow-night" },
+  args = { "default-dark" },
 }, {})
 
 -- Keymaps
