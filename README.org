@@ -47,6 +47,14 @@ See all available options and targets:
 
 Use =--backup-dir DIR= to choose a backup directory for the current run.
 
+** Neovim on macOS
+
+Treesitter supports both the current =main= API and existing installations locked
+to =master=. On macOS, its initialization resolves =SDKROOT= through
+=xcrun --sdk macosx --show-sdk-path= so parser compilation uses the SDK belonging
+to the selected developer tools. This applies inside Neovim and its child
+processes; it does not change the system's =xcode-select= setting.
+
 ** Rime: Windows, macOS, and Linux
 
 =config/rime/= contains the shared Keytao schemas, dictionaries, Lua modules,

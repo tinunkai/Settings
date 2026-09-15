@@ -57,15 +57,23 @@ require("lazy").setup({
     branch = "main",
     lazy = false,
     build = ":TSUpdate",
+    init = function()
+      if vim.fn.has("macunix") == 1 and vim.fn.executable("xcrun") == 1 then
+        -- Match the SDK to the selected developer tools instead of an inherited SDKROOT.
+        local sdk = vim.system({ "xcrun", "--sdk", "macosx", "--show-sdk-path" }, { text = true }):wait(5000)
+        if sdk.code == 0 then
+          local sdk_path = vim.trim(sdk.stdout)
+          if vim.fn.isdirectory(sdk_path) == 1 then
+            vim.env.SDKROOT = sdk_path
+          end
+        end
+      end
+    end,
     config = function()
       local nts = require("nvim-treesitter")
       local treesitter_group = vim.api.nvim_create_augroup("UserTreesitter", { clear = true })
 
-      nts.setup({
-        install_dir = vim.fn.stdpath("data") .. "/site",
-      })
-
-      nts.install({
+      local parsers = {
         "markdown",
         "markdown_inline",
         "lua",
@@ -83,7 +91,21 @@ require("lazy").setup({
         "css",
         "go",
         "typst",
-      })
+      }
+
+      -- Existing lazy-lock.json files can still select the legacy master branch.
+      if type(nts.install) == "function" then
+        nts.setup({
+          install_dir = vim.fn.stdpath("data") .. "/site",
+        })
+        nts.install(parsers)
+      else
+        require("nvim-treesitter.configs").setup({
+          ensure_installed = parsers,
+          sync_install = false,
+          auto_install = false,
+        })
+      end
 
       vim.treesitter.language.register("html", "htmldjango")
 
