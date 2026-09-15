@@ -255,11 +255,16 @@ tmux_conf_copy_to_os_clipboard=false
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
+# mosh 1.4 accepts OSC 52 clipboard selector c only.
+# Keep both parameters for terminfo expansion; suppress the first one.
+set -s set-clipboard external
+set -as terminal-overrides ',xterm*:Ms=\E]52;%p1%.0sc;%p2%s\007'
+
 # increase history size
 #set -g history-limit 10000
 
-# start with mouse mode enabled
-#set -g mouse on
+# start with mouse mode disabled
+set -g mouse off
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
