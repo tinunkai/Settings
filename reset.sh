@@ -27,7 +27,7 @@ Targets:
   dwm        Install the common X11 files and the dwm ~/.xinitrc
   i3         Install the common X11 files and the i3 ~/.xinitrc
   river      Install ~/.config/river/init
-  rime       Merge Rime files into the fcitx5 user data directory
+  rime       Merge Rime files into Squirrel (macOS) or fcitx5 (Linux)
 
 Options:
   -n, --dry-run        Print changes without writing anything
@@ -161,10 +161,19 @@ install_river() {
 }
 
 install_rime() {
-    local rime_home="$HOME/.local/share/fcitx5/rime"
+    local rime_home
+    local platform
+    platform="$(uname -s)"
+    case "$platform" in
+        Darwin) rime_home="$HOME/Library/Rime" ;;
+        Linux) rime_home="$HOME/.local/share/fcitx5/rime" ;;
+        *) die "unsupported Rime platform: $platform" ;;
+    esac
 
     install_tree_merge "$REPO_ROOT/config/rime" "$rime_home"
-    if [[ -f "$rime_home/Makefile" ]]; then
+    if [[ "$platform" == Darwin ]]; then
+        log "select Squirrel's Deploy menu item to rebuild Rime data"
+    elif [[ -f "$rime_home/Makefile" ]]; then
         log "rebuild Rime data"
         run make -C "$rime_home"
     else

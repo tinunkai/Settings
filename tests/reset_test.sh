@@ -47,11 +47,15 @@ HOME="$test_home" "$REPO_ROOT/reset.sh" --backup-dir "$backup_root"
 
 rime_home="$TEST_ROOT/rime-home"
 rime_backup="$TEST_ROOT/rime-backup"
+mkdir -p "$TEST_ROOT/linux-bin" "$TEST_ROOT/mac-bin"
+printf '#!/bin/sh\nprintf "Linux\\n"\n' >"$TEST_ROOT/linux-bin/uname"
+printf '#!/bin/sh\nprintf "Darwin\\n"\n' >"$TEST_ROOT/mac-bin/uname"
+chmod +x "$TEST_ROOT/linux-bin/uname" "$TEST_ROOT/mac-bin/uname"
 mkdir -p "$rime_home/.local/share/fcitx5/rime"
 printf 'old Rime config\n' >"$rime_home/.local/share/fcitx5/rime/default.custom.yaml"
 printf 'generated data\n' >"$rime_home/.local/share/fcitx5/rime/generated.txt"
 
-HOME="$rime_home" "$REPO_ROOT/reset.sh" --backup-dir "$rime_backup" rime
+env PATH="$TEST_ROOT/linux-bin:$PATH" HOME="$rime_home" "$REPO_ROOT/reset.sh" --backup-dir "$rime_backup" rime
 assert_file_matches \
     "$REPO_ROOT/config/rime/default.custom.yaml" \
     "$rime_home/.local/share/fcitx5/rime/default.custom.yaml"
@@ -59,7 +63,34 @@ assert_file_matches \
     fail "Rime merge removed an unmanaged file"
 [[ "$(cat -- "$rime_backup/.local/share/fcitx5/rime/default.custom.yaml")" == "old Rime config" ]] ||
     fail "original Rime tree was not backed up"
-HOME="$rime_home" "$REPO_ROOT/reset.sh" --backup-dir "$rime_backup" rime
+env PATH="$TEST_ROOT/linux-bin:$PATH" HOME="$rime_home" "$REPO_ROOT/reset.sh" --backup-dir "$rime_backup" rime
+
+# Exercise macOS destination selection on either host OS. Native BSD tools
+# and the Squirrel app still need a real macOS smoke test.
+mac_home="$TEST_ROOT/mac home"
+mac_backup="$TEST_ROOT/mac backup"
+mac_rime="$mac_home/Library/Rime"
+mkdir -p "$mac_rime"
+printf 'old Mac theme\n' >"$mac_rime/squirrel.custom.yaml"
+printf 'local installation\n' >"$mac_rime/installation.yaml"
+printf 'all:\n\t@touch rebuild-was-run\n' >"$mac_rime/Makefile"
+env PATH="$TEST_ROOT/mac-bin:$PATH" HOME="$mac_home" \
+    "$REPO_ROOT/rime.sh" --dry-run --backup-dir "$mac_backup"
+[[ "$(cat "$mac_rime/squirrel.custom.yaml")" == "old Mac theme" ]] ||
+    fail "Mac dry-run changed the theme"
+[[ ! -e "$mac_backup" ]] || fail "Mac dry-run created a backup"
+env PATH="$TEST_ROOT/mac-bin:$PATH" HOME="$mac_home" \
+    "$REPO_ROOT/rime.sh" --backup-dir "$mac_backup"
+assert_file_matches "$REPO_ROOT/config/rime/squirrel.custom.yaml" "$mac_rime/squirrel.custom.yaml"
+assert_file_matches "$REPO_ROOT/config/rime/keytao.user.dict.yaml" "$mac_rime/keytao.user.dict.yaml"
+[[ "$(cat "$mac_backup/Library/Rime/squirrel.custom.yaml")" == "old Mac theme" ]] ||
+    fail "Mac theme was not backed up"
+[[ "$(cat "$mac_rime/installation.yaml")" == "local installation" ]] ||
+    fail "Mac installation state was changed"
+[[ ! -e "$mac_home/.local/share/fcitx5" ]] || fail "Mac install used the Linux directory"
+[[ ! -e "$mac_rime/rebuild-was-run" ]] || fail "Mac install invoked a Makefile"
+env PATH="$TEST_ROOT/mac-bin:$PATH" HOME="$mac_home" \
+    "$REPO_ROOT/rime.sh" --backup-dir "$mac_backup"
 
 dry_home="$TEST_ROOT/dry-home"
 HOME="$dry_home" "$REPO_ROOT/reset.sh" --dry-run

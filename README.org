@@ -2,7 +2,7 @@
 
 Personal Linux terminal and desktop environment configuration. Configuration
 files are organized under =config/=, and =./reset.sh= is the installation
-entrypoint.
+entrypoint. Rime configuration also supports macOS Squirrel and Windows Weasel.
 
 ** Quick Start
 
@@ -46,6 +46,69 @@ See all available options and targets:
   desktop configuration, Rime, or system packages.
 
 Use =--backup-dir DIR= to choose a backup directory for the current run.
+
+** Rime: Windows, macOS, and Linux
+
+=config/rime/= contains the shared Keytao schemas, dictionaries, Lua modules,
+and OpenCC data. =weasel.custom.yaml= controls Windows appearance;
+=squirrel.custom.yaml= controls macOS appearance. Each frontend reads its own
+configuration, so these files can coexist.
+
+On macOS, install Squirrel 1.0 or newer with Lua support, then run:
+
+#+begin_src sh
+./rime.sh --dry-run
+./rime.sh
+#+end_src
+
+The installer detects macOS and merges files into =~/Library/Rime/=;
+on Linux it uses =~/.local/share/fcitx5/rime/=. On WSL this is still the Linux
+directory, not the Windows Weasel directory. For Windows, manually merge
+=config/rime/= into Weasel's user directory (normally =%APPDATA%/Rime=).
+Run the frontend's *Deploy / 重新部署* command after installation. The macOS
+installer prints this reminder and does not launch Squirrel or run Makefiles.
+
+The Mac theme uses the Windows base16 colors, 20-point text, vertical candidates,
+inline preedit, and hidden candidate numbers. Install =LXGW WenKai Screen= to
+match the Windows font; otherwise it falls back to PingFang. Both light and dark
+mode use base16. The candidate panel uses 2-point border insets plus the 8-point
+outer corner radius, 5-point candidate spacing, and a 5-point highlight corner
+radius. A 1-point upward baseline offset adjusts optical text centering.
+Spacing and transparency need visual verification on the Mac.
+The configuration fixes the keyboard layout to ABC and initializes Terminal
+and iTerm2 in ASCII mode. Other app-specific defaults remain Squirrel's defaults.
+
+Keyboard checks on macOS:
+
+- F4 opens the scheme menu; F7 toggles simplified/traditional Chinese. Use Fn
+  or enable standard function keys if macOS intercepts them.
+- Left Shift and Caps Lock retain the shared Rime behavior. Check macOS's
+  Caps Lock input-source switching setting if it conflicts.
+- Schemas keep their existing key bindings; the Control bindings in
+  =default.custom.yaml= are not automatically imported by the Keytao schemas.
+- The chord schema uses Squirrel's =chord_duration: 0.1= seconds; check chord
+  timing with the actual Mac keyboard.
+
+The Windows snapshot was compared on 2026-09-15. The three missing entries
+(上工, 母上, 父上) are included in =keytao.user.dict.yaml=. This is a maintained
+configuration snapshot, not an automatic or bidirectional sync. After changing
+local dictionaries, copy the changes back to this repository explicitly.
+Generated =build/= data, =installation.yaml=, =user.yaml=, and runtime user
+databases are not part of this snapshot; keep each machine's own state.
+
+Shared configuration fixes:
+
+- The saved simplified/traditional option and default shortcuts now refer to
+  =s2tw=, matching the schemes.
+- The chord schema omits optional 630 hints, English conversion, and pinyin
+  annotations whose =wxwprompt.json=, =EN2en.json=, and =pinyin.json= files and
+  dictionaries are missing. Their switches and bindings were removed too.
+  To restore them, supply the original OpenCC data and re-enable the filters.
+- Reverse lookup remains in the chord schema's translators; its invalid
+  duplicate entry in the filter list was removed.
+
+References: [[https://github.com/rime/squirrel/blob/master/data/squirrel.yaml][Squirrel configuration]],
+[[https://github.com/rime/home/wiki/CustomizationGuide][Rime customization guide]].
 
 ** Repository Layout
 

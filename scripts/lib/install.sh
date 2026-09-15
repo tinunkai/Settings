@@ -14,7 +14,7 @@ if [[ "$HOME" == "/" ]]; then
 fi
 
 DRY_RUN="${DRY_RUN:-0}"
-BACKUP_ROOT="${BACKUP_ROOT:-$HOME/.local/state/settings-backups/$(date +%Y%m%d-%H%M%S-%N)}"
+BACKUP_ROOT="${BACKUP_ROOT:-$HOME/.local/state/settings-backups/$(date +%Y%m%d-%H%M%S)-$$}"
 BACKUP_USED=0
 
 log() {
@@ -77,7 +77,11 @@ install_file() {
     [[ -f "$source" ]] || die "missing source file: $source"
 
     if [[ -f "$target" && ! -L "$target" ]] && cmp -s -- "$source" "$target"; then
-        current_mode="$(stat -c '%a' -- "$target")"
+        if [[ "$(uname -s)" == Darwin ]]; then
+            current_mode="$(stat -f '%Lp' "$target")"
+        else
+            current_mode="$(stat -c '%a' -- "$target")"
+        fi
         if [[ "$current_mode" == "${mode#0}" ]]; then
             log "unchanged $target"
             return 0

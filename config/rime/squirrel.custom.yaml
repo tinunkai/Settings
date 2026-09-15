@@ -1,0 +1,46 @@
+# Squirrel 1.0+: macOS appearance matching weasel.custom.yaml.
+# https://github.com/rime/squirrel/blob/master/data/squirrel.yaml
+patch:
+  keyboard_layout: default
+  chord_duration: 0.1
+  style/color_scheme: base16
+  style/color_scheme_dark: base16
+  style/font_face: "LXGW WenKai Screen, PingFangSC-Regular"
+  style/font_point: 20
+  style/label_font_face: "LXGW WenKai Screen, PingFangSC-Regular"
+  style/label_font_point: 20
+  style/comment_font_face: "LXGW WenKai Screen, PingFangSC-Regular"
+  style/comment_font_point: 20
+  style/candidate_list_layout: stacked
+  style/text_orientation: horizontal
+  style/inline_preedit: true
+  style/inline_candidate: false
+  style/candidate_format: "[candidate] [comment]"
+  style/corner_radius: 8
+  style/hilited_corner_radius: 5
+  # Squirrel adds corner_radius to these outer insets.
+  style/border_width: 2
+  style/border_height: 2
+  style/line_spacing: 5
+  style/spacing: 5
+  style/base_offset: 1  # Slight upward adjustment for optical centering.
+  style/shadow_size: 0
+  style/translucency: false
+  preset_color_schemes/base16:
+    name: base16
+    author: tinunkai
+    color_space: srgb
+    back_color: 0xd8585858
+    border_color: 0x585858
+    text_color: 0x88caf7
+    hilited_text_color: 0xd8d8d8
+    hilited_back_color: 0xd8383838
+    hilited_candidate_text_color: 0x282828
+    hilited_candidate_back_color: 0xd8c2af7c
+    candidate_text_color: 0xd8d8d8
+    comment_text_color: 0x88caf7
+    hilited_comment_text_color: 0x282828
+  app_options/com.apple.Terminal/ascii_mode: true
+  app_options/com.apple.Terminal/no_inline: true
+  app_options/com.googlecode.iterm2/ascii_mode: true
+  app_options/com.googlecode.iterm2/no_inline: true
