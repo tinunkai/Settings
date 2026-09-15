@@ -12,14 +12,16 @@ usage() {
 Usage: ./reset.sh [options] [target ...]
 
 Install the core terminal configuration. With no targets, this installs:
-top, zsh, nvim, and tmux.
+top, zsh, nvim, and tmux, plus detected Rime and kitty configurations.
 
 Targets:
-  core, all  Install all core targets
+  core       Install top, zsh, nvim, and tmux
+  all        Install core plus Rime/kitty when detected (default)
   top        Install ~/.toprc
   zsh        Install ~/.zshrc
   nvim       Install Neovim's init.lua and ~/.init.lua compatibility link
   tmux       Install ~/.tmux.conf and ~/.tmux.conf.local
+  kitty      Install ~/.config/kitty/kitty.conf
   vim        Install ~/.vimrc
   mycli      Install ~/.myclirc
   imv        Install ~/.config/imv/config
@@ -73,14 +75,14 @@ while (($#)); do
 done
 
 if ((${#targets[@]} == 0)); then
-    targets=(core)
+    targets=(all)
 fi
 
 has_dwm=0
 has_i3=0
 for target in "${targets[@]}"; do
     case "$target" in
-        core|all|top|zsh|nvim|tmux|vim|mycli|imv|x11|river|rime)
+        core|all|top|zsh|nvim|tmux|kitty|vim|mycli|imv|x11|river|rime)
             ;;
         dwm)
             has_dwm=1
@@ -127,6 +129,10 @@ install_nvim() {
 install_tmux() {
     install_file "$REPO_ROOT/config/tmux/tmux.conf" "$HOME/.tmux.conf"
     install_file "$REPO_ROOT/config/tmux/tmux.conf.local" "$HOME/.tmux.conf.local"
+}
+
+install_kitty() {
+    install_file "$REPO_ROOT/config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
 }
 
 install_vim() {
@@ -181,6 +187,43 @@ install_rime() {
     fi
 }
 
+# Explicit targets can prepare configuration before the application is installed.
+# Automatic installation requires a supported OS and application/config evidence.
+install_detected() {
+    local platform
+    platform="$(uname -s)"
+    case "$platform" in
+        Darwin|Linux) ;;
+        *)
+            log "skip Rime and kitty: unsupported platform $platform"
+            return 0
+            ;;
+    esac
+
+    if command -v kitty >/dev/null 2>&1 || [[ -d "$HOME/.config/kitty" ]] ||
+        { [[ "$platform" == Darwin ]] &&
+          [[ -d /Applications/kitty.app || -d "$HOME/Applications/kitty.app" ]]; }; then
+        install_kitty
+    else
+        log "skip kitty: no kitty executable, app, or configuration directory detected"
+    fi
+
+    if [[ "$platform" == Darwin ]]; then
+        if [[ -d /Library/Input\ Methods/Squirrel.app ||
+              -d "$HOME/Library/Input Methods/Squirrel.app" ||
+              -d "$HOME/Library/Rime" ]]; then
+            install_rime
+        else
+            log "skip Rime: no Squirrel app or ~/Library/Rime directory detected"
+        fi
+    elif [[ -d "$HOME/.local/share/fcitx5/rime" ]] ||
+        command -v fcitx5-rime_deployer >/dev/null 2>&1; then
+        install_rime
+    else
+        log "skip Rime: no fcitx5-rime_deployer or fcitx5 Rime directory detected"
+    fi
+}
+
 install_target() {
     case "$1" in
         top)
@@ -194,6 +237,9 @@ install_target() {
             ;;
         tmux)
             install_tmux
+            ;;
+        kitty)
+            install_kitty
             ;;
         vim)
             install_vim
@@ -219,7 +265,11 @@ install_target() {
         rime)
             install_rime
             ;;
-        core|all)
+        all)
+            install_target core
+            install_detected
+            ;;
+        core)
             install_top
             install_zsh
             install_nvim

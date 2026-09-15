@@ -107,4 +107,39 @@ if HOME="$invalid_home" "$REPO_ROOT/reset.sh" dwm i3 >/dev/null 2>&1; then
 fi
 [[ ! -e "$invalid_home" ]] || fail "target conflict wrote into HOME"
 
+# Isolate detection from applications installed on the test host.
+detect_bin="$TEST_ROOT/detect-bin"
+detect_home="$TEST_ROOT/detect-home"
+mkdir -p "$detect_bin"
+for tool in bash dirname date find; do
+    ln -s "$(command -v "$tool")" "$detect_bin/$tool"
+done
+cp "$TEST_ROOT/linux-bin/uname" "$detect_bin/uname"
+output="$(env PATH="$detect_bin" HOME="$detect_home" "$REPO_ROOT/reset.sh" --dry-run)"
+[[ "$output" == *"skip kitty:"* && "$output" == *"skip Rime:"* ]] ||
+    fail "absent Linux applications were not skipped"
+[[ ! -e "$detect_home" ]] || fail "automatic dry-run wrote into HOME"
+
+mkdir -p "$detect_home/.config/kitty" "$detect_home/.local/share/fcitx5/rime"
+output="$(env PATH="$detect_bin" HOME="$detect_home" "$REPO_ROOT/reset.sh" --dry-run)"
+[[ "$output" == *"install $detect_home/.config/kitty/kitty.conf"* &&
+   "$output" == *"merge $REPO_ROOT/config/rime -> $detect_home/.local/share/fcitx5/rime"* ]] ||
+    fail "Linux configuration detection failed"
+[[ ! -e "$detect_home/.config/kitty/kitty.conf" ]] || fail "kitty dry-run wrote configuration"
+output="$(env PATH="$detect_bin" HOME="$detect_home" "$REPO_ROOT/reset.sh" core --dry-run)"
+[[ "$output" != *kitty* && "$output" != *Rime* && "$output" != *rime* ]] ||
+    fail "core unexpectedly included detected applications"
+
+cp "$TEST_ROOT/mac-bin/uname" "$detect_bin/uname"
+mkdir -p "$detect_home/Applications/kitty.app" "$detect_home/Library/Input Methods/Squirrel.app"
+output="$(env PATH="$detect_bin" HOME="$detect_home" "$REPO_ROOT/reset.sh" all --dry-run)"
+[[ "$output" == *"install $detect_home/.config/kitty/kitty.conf"* &&
+   "$output" == *"merge $REPO_ROOT/config/rime -> $detect_home/Library/Rime"* ]] ||
+    fail "macOS automatic destination selection failed"
+
+printf '#!/bin/sh\nprintf "UnsupportedOS\\n"\n' >"$detect_bin/uname"
+output="$(env PATH="$detect_bin" HOME="$detect_home" "$REPO_ROOT/reset.sh" --dry-run)"
+[[ "$output" == *"skip Rime and kitty: unsupported platform UnsupportedOS"* ]] ||
+    fail "unsupported platform was not skipped"
+
 printf 'PASS: reset installer\n'

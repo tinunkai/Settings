@@ -12,7 +12,7 @@ Preview the default installation:
 ./reset.sh --dry-run
 #+end_src
 
-Install the default core configuration (top, zsh, Neovim, and tmux):
+Install the core configuration plus Rime and kitty when detected:
 
 #+begin_src sh
 ./reset.sh
@@ -22,6 +22,7 @@ You can also install selected targets:
 
 #+begin_src sh
 ./reset.sh nvim tmux
+./reset.sh kitty
 ./reset.sh mycli imv
 ./reset.sh dwm
 ./reset.sh rime
@@ -42,8 +43,18 @@ See all available options and targets:
   =~/.local/state/settings-backups/<timestamp>/=.
 - Rime uses a merge installation: additional existing files are preserved, and
   the entire destination directory is backed up before any changes.
-- =core= and =all= include only top, zsh, Neovim, and tmux. They do not install
-  desktop configuration, Rime, or system packages.
+- The default target is =all=: it installs =core= (top, zsh, Neovim, tmux),
+  then detects Rime and kitty on macOS/Linux. Use =./reset.sh core= to install
+  only the four core targets. Desktop configuration and packages stay separate.
+- Kitty is detected by its executable, =~/.config/kitty/= directory, or a macOS
+  app in =/Applications/= or =~/Applications/=.
+- On macOS, Rime is detected by Squirrel in the system/user =Library/Input Methods/=
+  directory or an existing =~/Library/Rime/=. On Linux, detection requires
+  =fcitx5-rime_deployer= or =~/.local/share/fcitx5/rime/=; other Rime frontends
+  are not automatically configured.
+- Missing applications and unsupported platforms are logged and skipped during
+  automatic detection. Explicit =kitty= and =rime= targets bypass app detection,
+  allowing configuration before app installation (Rime still requires macOS/Linux).
 
 Use =--backup-dir DIR= to choose a backup directory for the current run.
 
@@ -54,6 +65,18 @@ to =master=. On macOS, its initialization resolves =SDKROOT= through
 =xcrun --sdk macosx --show-sdk-path= so parser compilation uses the SDK belonging
 to the selected developer tools. This applies inside Neovim and its child
 processes; it does not change the system's =xcode-select= setting.
+
+** Kitty
+
+=config/kitty/kitty.conf= is a complete snapshot of the local kitty configuration
+from 2026-09-15, including its comments. It uses 14-point text, Base16 Tomorrow
+Night colors, =LXGW WenKai Mono Screen=, =Sarasa Fixed Slab SC=, and
+=Sarasa Fixed SC= fonts. Install these fonts separately on a new machine.
+
+Restore it to =~/.config/kitty/kitty.conf= with =./kitty.sh= or
+=./reset.sh kitty=; add =--dry-run= to preview. Kitty is also installed by the default target when detected.
+After editing the local configuration, copy it back into this repository to
+update the snapshot.
 
 ** Rime: Windows, macOS, and Linux
 
@@ -123,6 +146,7 @@ References: [[https://github.com/rime/squirrel/blob/master/data/squirrel.yaml][S
 #+begin_example
 .
 ├── config/               # Configuration files grouped by application
+│   ├── kitty/
 │   ├── nvim/
 │   ├── rime/
 │   ├── tmux/
@@ -144,7 +168,7 @@ The following components are not installed by default:
 
 ** Compatibility Entrypoints
 
-=top.sh=, =zsh.sh=, =nvim.sh=, =tmux.sh=, and =rime.sh= remain available
+=top.sh=, =zsh.sh=, =nvim.sh=, =tmux.sh=, =kitty.sh=, and =rime.sh= remain available
 and forward their arguments to =reset.sh=. For example:
 
 #+begin_src sh
